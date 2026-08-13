@@ -5,7 +5,6 @@ interface Project {
   title: string
   body: string
   tag: string
-  gallery?: { src: string; caption: string; wide?: boolean }[]
   metrics?: { label: string; value: string }[]
   workflow?: string[]
   tech: string[]
@@ -13,67 +12,26 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
-    slug: 'tba',
-    title: 'TBA — AI Material Take-Off',
-    body: 'Computer vision + ML pipeline for construction material lists at Simpson Strong-Tie. Automates PDF drawing interpretation: building info extraction, schedule table OCR, component markup, quantity estimation.',
-    tag: 'AEC / CV / ML',
-    gallery: [
-      { src: '/input/image8.png', caption: 'Problem — manual scope sheet / take-off document' },
-      { src: '/input/image19.png', caption: 'Extraction — drawing info → structured data', wide: true },
-      { src: '/input/image9.png', caption: 'Markup — CV component detection on plan' },
-      { src: '/input/image36.png', caption: 'Outcome — automated quantity output' },
-    ],
-    metrics: [
-      { label: 'Turnaround', value: '10 → 3 days' },
-      { label: 'Time reduction', value: '97.6%' },
-      { label: 'Accuracy', value: '89.6%' },
-      { label: 'Scope', value: '60% of material list' },
-    ],
-    workflow: [
-      'Upload drawing files (.pdf)',
-      'Extract building info — raw text → structured JSON',
-      'Extract schedule tables via OCR',
-      'Human-in-the-loop validation',
-      'Trigger product quantity estimation',
-      'Package & deliver — product list (.xlsx) + marked-up drawing (.pdf)',
-    ],
-    tech: ['Computer Vision', 'Machine Learning', 'PDF/SVG parsing', 'OCR', 'Vector format processing', 'Human-in-the-loop', 'AEC / Construction'],
-  },
-  {
     slug: 'roofdata',
-    title: 'RoofData AI Estimator',
-    body: 'Node/Express/TypeScript AI costing estimator for the roofdata.report platform. Claude prose generation, intent extraction, role-gated endpoints, RBAC + JWT, deployed on-prem.',
+    title: 'AI Roof Estimator',
+    body: 'AI costing estimator for the roofdata.report platform. The backend owns every number: intent extraction, geo-widened match, confidence tiering, then Claude writes only the plain-English explanation.',
     tag: 'LLM / Production',
     metrics: [
-      { label: 'Endpoints', value: '3 role-gated' },
-      { label: 'Stack', value: 'Node 16 / TS' },
-      { label: 'LLM', value: 'Claude' },
+      { label: 'Confidence tiers', value: '4' },
+      { label: 'LLM role', value: 'Prose only' },
       { label: 'Auth', value: 'RBAC + JWT' },
+      { label: 'Deploy', value: 'On-prem' },
     ],
     workflow: [
       'Frontend UI → Node/Express app',
-      'RBAC middleware',
-      'Estimator modules',
-      'Data Graph API (JWT-signed)',
-      'Numeric calculations (Node owns numbers)',
-      'Claude prose generation (explanations only)',
+      'RBAC middleware + rate limiting',
+      'Intent extraction (closed-enum validated)',
+      'Data Graph API — signed short-lived JWT',
+      'Node numeric calculations (Node owns the numbers)',
+      'Confidence tiering from match count',
+      'Claude prose generation (explanation only)',
     ],
-    gallery: [{ src: '/input/roofdata-cover.jpg', caption: 'AI Roof Estimator — full visibility, every card' }],
-    tech: ['Node.js / Express', 'TypeScript', 'Claude API', 'Intent extraction', 'RBAC', 'JWT', 'Prompt engineering'],
-  },
-  {
-    slug: 'doc-ai',
-    title: 'Document Intelligence',
-    body: 'PDF/OCR extraction pipeline — specs in, structured data out.',
-    tag: 'AI / RAG',
-    tech: ['React / TypeScript', 'Node.js / Python', 'PostgreSQL', 'Docker / CI/CD', 'OpenAI / Claude / Gemini', 'RAG / Vector DB', 'PDF / OCR'],
-  },
-  {
-    slug: 'rag-chat',
-    title: 'RAG Chat',
-    body: 'Chat over documents with cited answers.',
-    tag: 'AI / RAG',
-    tech: ['React / TypeScript', 'Node.js / Python', 'PostgreSQL', 'Docker / CI/CD', 'OpenAI / Claude / Gemini', 'RAG / Vector DB', 'PDF / OCR'],
+    tech: ['Node.js / Express', 'TypeScript', 'Claude API', 'Intent extraction', 'Confidence tiering', 'Rate limiting', 'RBAC', 'JWT', 'Prompt engineering'],
   },
 ]
 
@@ -136,41 +94,16 @@ export default function ProjectDetail() {
           </div>
         )}
 
-        <div className={`mt-10 w-full overflow-hidden rounded border border-white/10 bg-white/5 ${project.slug === 'tba' ? '' : 'aspect-video'}`}>
+        <div className="mt-10 w-full overflow-hidden rounded border border-white/10 bg-white/5">
           <img
-            src={`/input/${project.slug === 'tba' ? 'image33.png' : project.slug + '-cover.jpg'}`}
+            src={`/input/${project.slug}-cover.jpg`}
             alt={project.title}
-            className={`w-full ${project.slug === 'tba' ? 'aspect-auto object-contain' : 'aspect-video object-cover'}`}
+            className="w-full object-contain"
             onError={(e) => {
               e.currentTarget.style.display = 'none'
             }}
           />
         </div>
-
-        <div className="mt-10">
-          <video
-            src={`/input/${project.slug}-video.mp4`}
-            controls
-            className="aspect-video w-full rounded border border-white/10 bg-black"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none'
-            }}
-          />
-        </div>
-
-        {project.gallery && project.gallery.length > 0 && (
-          <div className="mt-10">
-            <h2 className="text-xl font-semibold text-white">Case study slides</h2>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              {project.gallery.map((g) => (
-                <div key={g.src} className={`overflow-hidden rounded border border-white/10 bg-white/5 ${g.wide ? 'sm:col-span-2' : ''}`}>
-                  <img src={g.src} alt={g.caption} loading="lazy" className={`w-full ${g.wide ? 'aspect-auto object-contain' : 'aspect-[4/3] object-cover'}`} onError={(e) => (e.currentTarget.style.display = 'none')} />
-                  <div className="border-t border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-slate-400">{g.caption}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
 
         <div className="mt-10 flex flex-wrap gap-2">
           {project.tech.map((t) => (
