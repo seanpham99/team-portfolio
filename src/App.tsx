@@ -147,7 +147,7 @@ function ProofCard({ p }: { p: { slug: string; title: string; body: string; tag:
           src={AssetUrl(p.slug, 'cover')}
           alt={p.title}
           loading="lazy"
-          className="h-full w-full object-cover opacity-0 transition group-hover:opacity-100"
+          className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
           onError={(e) => {
             e.currentTarget.style.display = 'none'
           }}
