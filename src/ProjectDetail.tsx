@@ -22,10 +22,7 @@ const PROJECTS: Project[] = [
       '/input/image8.png',
       '/input/image10.png',
       '/input/image11.png',
-      '/input/image13.png',
-      '/input/image15.png',
       '/input/image19.png',
-      '/input/image21.png',
       '/input/image22.png',
       '/input/image26.png',
       '/input/image30.png',
@@ -172,7 +169,7 @@ export default function ProjectDetail() {
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               {project.gallery.map((src) => (
                 <div key={src} className="overflow-hidden rounded border border-white/10 bg-white/5">
-                  <img src={src} alt={`TBA slide ${src.split('/').pop()}`} loading="lazy" className="w-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
+                  <img src={src} alt={`TBA slide ${src.split('/').pop()}`} loading="lazy" className="aspect-[4/3] w-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
                 </div>
               ))}
             </div>
