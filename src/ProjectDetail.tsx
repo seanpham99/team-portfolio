@@ -60,6 +60,7 @@ const PROJECTS: Project[] = [
       'Numeric calculations (Node owns numbers)',
       'Claude prose generation (explanations only)',
     ],
+    gallery: ['/input/roofdata-cover.jpg'],
     tech: ['Node.js / Express', 'TypeScript', 'Claude API', 'Intent extraction', 'RBAC', 'JWT', 'Prompt engineering'],
   },
   {
