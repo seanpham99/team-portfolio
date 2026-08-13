@@ -127,7 +127,7 @@ function SectionHeading({ kicker, title }: { kicker: string; title: string }) {
 
 function AssetUrl(slug: string, kind: 'cover' | 'video') {
   const ext = kind === 'video' ? 'mp4' : 'jpg'
-  return `/assets/${slug}-${kind}.${ext}`
+  return `/input/${slug}-${kind}.${ext}`
 }
 
 function ProofCard({ p }: { p: { slug: string; title: string; body: string; tag: string } }) {

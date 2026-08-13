@@ -43,7 +43,7 @@ export default function ProjectDetail() {
 
         <div className="mt-10 aspect-video w-full overflow-hidden rounded border border-white/10 bg-white/5">
           <img
-            src={`/assets/${project.slug}-cover.jpg`}
+            src={`/input/${project.slug}-cover.jpg`}
             alt={project.title}
             className="h-full w-full object-cover"
             onError={(e) => {
@@ -54,7 +54,7 @@ export default function ProjectDetail() {
 
         <div className="mt-10">
           <video
-            src={`/assets/${project.slug}-video.mp4`}
+            src={`/input/${project.slug}-video.mp4`}
             controls
             className="aspect-video w-full rounded border border-white/10 bg-black"
             onError={(e) => {
