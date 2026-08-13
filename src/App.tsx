@@ -60,6 +60,7 @@ const TEAM = [
   {
     name: 'Anh Dung Nguyen',
     role: 'AI Engineer',
+    avatar: '/input/dung-avatar.jpg',
     detail: 'R&D lead at Tesse (VoiceGPT) and Universe Labs — shipped VoiceGPT (70k users), AI integration for business clients across VN, Singapore, Australia, Canada. Unity/3D + digital twin, LLM & vision AI.',
     tags: ['Voice AI', 'Vision AI', 'LLM Agents', 'Digital Twin'],
   },
