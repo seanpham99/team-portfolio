@@ -93,24 +93,24 @@ const TEAM = [
     tags: ['Spark', 'OCR', 'Python', 'AWS', 'Zalo', 'UIT'],
   },
   {
-    name: 'Frontend Specialist — Zalo / UIT',
-    role: 'Supporting',
-    detail: '5+ years, Zalo background, UIT. Product-grade React/TypeScript interfaces.',
-    tags: ['React', 'TypeScript', 'UI Systems'],
+    name: 'Nam Hoang',
+    role: 'Structural / AI-ML Engineer',
+    detail: 'Structural - AI/ML Engineer @ Simpson Strong-Tie Vietnam, Team Lead Data Analysis. Co-built TBA (CV/ML Material Take-Off) with Son. Civil engineering domain (AEC).',
+    tags: ['Computer Vision', 'ML', 'AEC', 'SST'],
   },
   {
-    name: 'Backend / DevOps',
-    role: 'Supporting',
-    detail: '5+ years. APIs, Postgres, Docker, CI/CD — keeps delivery reliable.',
-    tags: ['Node/Python', 'Postgres', 'Docker', 'CI/CD'],
+    name: 'Anh Dung Nguyen',
+    role: 'CEO / CTO',
+    detail: 'CEO at Universe Labs — strategic lead + technical direction. LinkedIn out of date; portfolio coming.',
+    tags: ['Strategy', 'Leadership', 'AI'],
   },
 ]
 
 const PROOF_MEDIA = [
+  { slug: 'tba', title: 'TBA — AI Material Take-Off', body: 'Computer vision + ML pipeline for construction material lists. 10 days → 3 days turnaround, 89.6% accuracy, 97.6% time reduction. Built with Nam Hoang at Simpson Strong-Tie.', tag: 'AEC / CV / ML' },
   { slug: 'doc-ai', title: 'Document Intelligence', body: 'PDF/OCR extraction pipeline — specs in, structured data out.', tag: 'AI / RAG' },
   { slug: 'rag-chat', title: 'RAG Chat', body: 'Chat over documents with cited answers.', tag: 'AI / RAG' },
   { slug: 'fullstack', title: 'Full-Stack Product', body: 'React/TS + Node/Python + Postgres shipped.', tag: 'Full-Stack' },
-  { slug: 'aec', title: 'AEC Project', body: 'Construction/architecture domain work.', tag: 'AEC Domain' },
 ]
 
 const PROOF = PROOF_MEDIA
