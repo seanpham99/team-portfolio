@@ -1,15 +1,93 @@
 import { useParams, Link } from 'react-router-dom'
 
-const PROOF_MEDIA = [
-  { slug: 'doc-ai', title: 'Document Intelligence', body: 'PDF/OCR extraction pipeline — specs in, structured data out.', tag: 'AI / RAG' },
-  { slug: 'rag-chat', title: 'RAG Chat', body: 'Chat over documents with cited answers.', tag: 'AI / RAG' },
-  { slug: 'fullstack', title: 'Full-Stack Product', body: 'React/TS + Node/Python + Postgres shipped.', tag: 'Full-Stack' },
-  { slug: 'aec', title: 'AEC Project', body: 'Construction/architecture domain work.', tag: 'AEC Domain' },
+interface Project {
+  slug: string
+  title: string
+  body: string
+  tag: string
+  gallery?: string[]
+  metrics?: { label: string; value: string }[]
+  workflow?: string[]
+  tech: string[]
+}
+
+const PROJECTS: Project[] = [
+  {
+    slug: 'tba',
+    title: 'TBA — AI Material Take-Off',
+    body: 'Computer vision + ML pipeline for construction material lists at Simpson Strong-Tie. Automates PDF drawing interpretation: building info extraction, schedule table OCR, component markup, quantity estimation.',
+    tag: 'AEC / CV / ML',
+    gallery: [
+      '/input/tba-slide1.png',
+      '/input/image8.png',
+      '/input/image10.png',
+      '/input/image11.png',
+      '/input/image13.png',
+      '/input/image15.png',
+      '/input/image19.png',
+      '/input/image21.png',
+      '/input/image22.png',
+      '/input/image26.png',
+      '/input/image30.png',
+      '/input/image33.png',
+      '/input/image36.png',
+    ],
+    metrics: [
+      { label: 'Turnaround', value: '10 → 3 days' },
+      { label: 'Time reduction', value: '97.6%' },
+      { label: 'Accuracy', value: '89.6%' },
+      { label: 'Scope', value: '60% of material list' },
+    ],
+    workflow: [
+      'Upload drawing files (.pdf)',
+      'Extract building info — raw text → structured JSON',
+      'Extract schedule tables via OCR',
+      'Human-in-the-loop validation',
+      'Trigger product quantity estimation',
+      'Package & deliver — product list (.xlsx) + marked-up drawing (.pdf)',
+    ],
+    tech: ['Computer Vision', 'Machine Learning', 'PDF/SVG parsing', 'OCR', 'Vector format processing', 'Human-in-the-loop', 'AEC / Construction'],
+  },
+  {
+    slug: 'roofdata',
+    title: 'RoofData AI Estimator',
+    body: 'Node/Express/TypeScript AI costing estimator for the roofdata.report platform. Claude prose generation, intent extraction, role-gated endpoints, RBAC + JWT, deployed on-prem.',
+    tag: 'LLM / Production',
+    metrics: [
+      { label: 'Endpoints', value: '3 role-gated' },
+      { label: 'Stack', value: 'Node 16 / TS' },
+      { label: 'LLM', value: 'Claude' },
+      { label: 'Auth', value: 'RBAC + JWT' },
+    ],
+    workflow: [
+      'Frontend UI → Node/Express app',
+      'RBAC middleware',
+      'Estimator modules',
+      'Data Graph API (JWT-signed)',
+      'Numeric calculations (Node owns numbers)',
+      'Claude prose generation (explanations only)',
+    ],
+    tech: ['Node.js / Express', 'TypeScript', 'Claude API', 'Intent extraction', 'RBAC', 'JWT', 'Prompt engineering'],
+  },
+  {
+    slug: 'doc-ai',
+    title: 'Document Intelligence',
+    body: 'PDF/OCR extraction pipeline — specs in, structured data out.',
+    tag: 'AI / RAG',
+    tech: ['React / TypeScript', 'Node.js / Python', 'PostgreSQL', 'Docker / CI/CD', 'OpenAI / Claude / Gemini', 'RAG / Vector DB', 'PDF / OCR'],
+  },
+  {
+    slug: 'rag-chat',
+    title: 'RAG Chat',
+    body: 'Chat over documents with cited answers.',
+    tag: 'AI / RAG',
+    tech: ['React / TypeScript', 'Node.js / Python', 'PostgreSQL', 'Docker / CI/CD', 'OpenAI / Claude / Gemini', 'RAG / Vector DB', 'PDF / OCR'],
+  },
 ]
 
 export default function ProjectDetail() {
   const { slug } = useParams()
-  const project = PROOF_MEDIA.find((p) => p.slug === slug)
+  const project = PROJECTS.find((p) => p.slug === slug)
 
   if (!project) {
     return (
@@ -41,6 +119,31 @@ export default function ProjectDetail() {
         <h1 className="mt-2 text-4xl font-bold text-white md:text-5xl">{project.title}</h1>
         <p className="mt-4 text-lg text-slate-400">{project.body}</p>
 
+        {project.metrics && (
+          <div className="mt-10 grid gap-4 md:grid-cols-4">
+            {project.metrics.map((m) => (
+              <div key={m.label} className="border border-white/10 bg-white/[0.03] p-5 text-center">
+                <div className="font-mono-tech text-2xl font-bold text-amber-400">{m.value}</div>
+                <div className="mt-1 text-xs uppercase tracking-wider text-slate-400">{m.label}</div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {project.workflow && (
+          <div className="mt-10">
+            <h2 className="text-xl font-semibold text-white">Workflow</h2>
+            <ol className="mt-4 space-y-3 border-l border-amber-400/30 pl-5">
+              {project.workflow.map((step, i) => (
+                <li key={step} className="relative text-slate-300">
+                  <span className="absolute -left-[1.4rem] top-0 font-mono-tech text-xs text-amber-400">{String(i + 1).padStart(2, '0')}</span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+
         <div className="mt-10 aspect-video w-full overflow-hidden rounded border border-white/10 bg-white/5">
           <img
             src={`/input/${project.slug}-cover.jpg`}
@@ -63,8 +166,21 @@ export default function ProjectDetail() {
           />
         </div>
 
+        {project.gallery && project.gallery.length > 0 && (
+          <div className="mt-10">
+            <h2 className="text-xl font-semibold text-white">Case study slides</h2>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              {project.gallery.map((src) => (
+                <div key={src} className="overflow-hidden rounded border border-white/10 bg-white/5">
+                  <img src={src} alt={`TBA slide ${src.split('/').pop()}`} loading="lazy" className="w-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="mt-10 flex flex-wrap gap-2">
-          {['React / TypeScript', 'Node.js / Python', 'PostgreSQL', 'Docker / CI/CD', 'OpenAI / Claude / Gemini', 'RAG / Vector DB', 'PDF / OCR'].map((t) => (
+          {project.tech.map((t) => (
             <span key={t} className="rounded bg-white/5 px-3 py-1.5 text-sm text-slate-300">
               {t}
             </span>
