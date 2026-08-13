@@ -136,11 +136,11 @@ export default function ProjectDetail() {
           </div>
         )}
 
-        <div className="mt-10 aspect-video w-full overflow-hidden rounded border border-white/10 bg-white/5">
+        <div className={`mt-10 w-full overflow-hidden rounded border border-white/10 bg-white/5 ${project.slug === 'tba' ? '' : 'aspect-video'}`}>
           <img
             src={`/input/${project.slug === 'tba' ? 'image33.png' : project.slug + '-cover.jpg'}`}
             alt={project.title}
-            className="h-full w-full object-cover"
+            className={`w-full ${project.slug === 'tba' ? 'aspect-auto object-contain' : 'aspect-video object-cover'}`}
             onError={(e) => {
               e.currentTarget.style.display = 'none'
             }}
