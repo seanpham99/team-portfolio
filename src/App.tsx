@@ -114,17 +114,6 @@ function App() {
         }}
       />
 
-      {/* background texture — generated blueprint */}
-      <div
-        className="pointer-events-none fixed inset-0"
-        style={{
-          backgroundImage: 'url(/assets/hero-bg.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.08,
-        }}
-      />
-
       {/* NAV */}
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0a0f16]/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -235,28 +224,17 @@ function App() {
         {/* CAPABILITIES — JD mirror */}
         <section id="capabilities" className="py-20">
           <div className="mx-auto max-w-6xl px-6">
-            <div className="grid items-start gap-10 lg:grid-cols-[1fr_320px]">
-              <div>
-                <SectionHeading kicker="02 · Capabilities" title="You need. We deliver." />
-                <div className="grid gap-4 md:grid-cols-2">
-                  {CAPABILITIES.map((m) => (
-                    <div key={m.need} className="flex gap-4 border border-white/10 bg-white/[0.03] p-5 transition hover:border-amber-400/40">
-                      <div className="font-mono-tech text-amber-400">✓</div>
-                      <div>
-                        <div className="font-medium text-white">{m.need}</div>
-                        <div className="mt-1 text-sm text-slate-400">{m.have}</div>
-                      </div>
-                    </div>
-                  ))}
+            <SectionHeading kicker="02 · Capabilities" title="You need. We deliver." />
+            <div className="grid gap-4 md:grid-cols-2">
+              {CAPABILITIES.map((m) => (
+                <div key={m.need} className="flex gap-4 border border-white/10 bg-white/[0.03] p-5 transition hover:border-amber-400/40">
+                  <div className="font-mono-tech text-amber-400">✓</div>
+                  <div>
+                    <div className="font-medium text-white">{m.need}</div>
+                    <div className="mt-1 text-sm text-slate-400">{m.have}</div>
+                  </div>
                 </div>
-              </div>
-              <div className="hidden lg:block">
-                <img
-                  src="/assets/aec-visual.png"
-                  alt="AEC digital twin wireframe"
-                  className="w-full border border-white/10 opacity-80"
-                />
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -291,18 +269,8 @@ function App() {
         </section>
 
         {/* CTA / CONTACT */}
-        <section id="contact" className="relative overflow-hidden py-24">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: 'url(/assets/cta-bg.jpg)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              opacity: 0.15,
-            }}
-          />
-          <div className="absolute inset-0 bg-[#0a0f16]/70" />
-          <div className="relative mx-auto max-w-4xl px-6 text-center">
+        <section id="contact" className="py-24">
+          <div className="mx-auto max-w-4xl px-6 text-center">
             <h2 className="text-3xl font-bold text-white md:text-5xl">
               Ready to build.
             </h2>
