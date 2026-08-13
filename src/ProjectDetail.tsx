@@ -61,6 +61,27 @@ const PROJECTS: Project[] = [
     ],
     tech: ['Node.js / Express', 'TypeScript', 'Claude API', 'Intent extraction', 'Confidence tiering', 'Rate limiting', 'RBAC', 'JWT', 'Prompt engineering'],
   },
+  {
+    slug: 'voicegpt',
+    title: 'VoiceGPT',
+    body: 'Voice-first ChatGPT interface built on OpenAI — Vietnamese + English speech with 98% accuracy, voice-to-text input, text-to-speech answers, and art generation from prompts. Reached 70,000+ registered users in its first month, covered by VnExpress.',
+    tag: 'Voice AI / LLM Product',
+    metrics: [
+      { label: 'Users', value: '70,000+' },
+      { label: 'Time to scale', value: '1 month' },
+      { label: 'Speech accuracy', value: '98%' },
+      { label: 'Languages', value: 'VI + EN' },
+    ],
+    workflow: [
+      'User speaks a question — Google speech-to-text converts it',
+      'Question forwarded to ChatGPT backend via VoiceGPT proxy',
+      'AI response returned + synthesized to speech via text-to-speech',
+      'Art generation from text prompts built in',
+      'Invite-gated signup for capacity control',
+      'Press coverage: VnExpress, Feb 2023',
+    ],
+    tech: ['Voice AI', 'Speech-to-text', 'Text-to-speech', 'OpenAI / ChatGPT API', 'Vietnamese + English', 'Consumer product', 'Prompt-based art generation'],
+  },
 ]
 
 export default function ProjectDetail() {

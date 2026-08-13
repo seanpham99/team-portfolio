@@ -28,6 +28,13 @@ const PROOF = [
     tag: 'LLM / Production',
     metric: 'Confidence-tiered estimates',
   },
+  {
+    slug: 'voicegpt',
+    title: 'VoiceGPT',
+    body: 'Voice-first ChatGPT interface — 70,000+ registered users in the first month, Vietnamese + English speech with 98% accuracy, art generation from prompts.',
+    tag: 'Voice AI / LLM Product',
+    metric: '70k users in 30 days',
+  },
 ]
 
 const TEAM = [
@@ -74,6 +81,7 @@ function SectionHeading({ kicker, title }: { kicker: string; title: string }) {
 
 function AssetUrl(slug: string, kind: 'cover' | 'video') {
   if (slug === 'tba' && kind === 'cover') return '/input/image33.png'
+  if (slug === 'voicegpt' && kind === 'cover') return '/input/voicegpt-cover.png'
   const ext = kind === 'video' ? 'mp4' : 'jpg'
   return `/input/${slug}-${kind}.${ext}`
 }
