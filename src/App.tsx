@@ -298,10 +298,10 @@ function App() {
               backgroundImage: 'url(/assets/cta-bg.jpg)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              opacity: 0.28,
+              opacity: 0.15,
             }}
           />
-          <div className="absolute inset-0 bg-[#0a0f16]/60" />
+          <div className="absolute inset-0 bg-[#0a0f16]/70" />
           <div className="relative mx-auto max-w-4xl px-6 text-center">
             <h2 className="text-3xl font-bold text-white md:text-5xl">
               Ready to build.
