@@ -96,7 +96,7 @@ export default function ProjectDetail() {
         <div className="font-mono-tech text-4xl font-bold text-amber-400">404</div>
         <p>Project not found.</p>
         <Link to="/" className="rounded border border-amber-400/50 px-4 py-2 text-amber-400 hover:bg-amber-400/10">
-          ← Back to Buildform
+          ← Back
         </Link>
       </div>
     )
@@ -114,7 +114,7 @@ export default function ProjectDetail() {
       />
       <div className="relative mx-auto max-w-4xl px-6 py-16">
         <Link to="/" className="font-mono-tech text-sm text-amber-400 hover:text-amber-300">
-          ← Back to Buildform
+          ← Back
         </Link>
         <div className="mt-8 font-mono-tech text-xs uppercase tracking-widest text-amber-400">{project.tag}</div>
         <h1 className="mt-2 text-4xl font-bold text-white md:text-5xl">{project.title}</h1>

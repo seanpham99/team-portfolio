@@ -318,7 +318,7 @@ function App() {
 
       <footer className="border-t border-white/10 py-8">
         <div className="mx-auto max-w-6xl px-6 font-mono-tech text-xs text-slate-600">
-          © {new Date().getFullYear()} Buildform · AI Engineering for Construction & Architecture
+          © {new Date().getFullYear()} AI Engineering for Construction & Architecture
         </div>
       </footer>
     </div>
