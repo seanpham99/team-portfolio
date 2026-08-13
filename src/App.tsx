@@ -1,125 +1,60 @@
-
 import { Link } from 'react-router-dom'
 
-const NAV = [
-  'Capabilities',
-  'AEC Focus',
-  'Team',
-  'Proof',
-  'Working Style',
-  'Contact',
-]
+const NAV = ['Proof', 'Capabilities', 'Team', 'Contact']
 
-const JD_MATCH = [
+const CAPABILITIES = [
   { need: 'React, TypeScript, Next.js', have: 'Production React 19 / TS codebases, Next.js apps shipped' },
   { need: 'Node.js (NestJS/Express) or Python (FastAPI)', have: 'Node + Python services in production; REST APIs end-to-end' },
   { need: 'PostgreSQL / MySQL, Git', have: 'Postgres at scale, Supabase, versioned workflows' },
   { need: 'Docker + CI/CD cloud deploys', have: 'Dockerized apps, GitHub Actions → ECS/Fargate & static CDNs' },
   { need: 'LLM integration (OpenAI, Claude, Gemini)', have: 'OpenAI / Claude / Gemini wired into real products' },
-  { need: 'RAG + vector databases', have: 'pgvector, Pinecone/Qdrant-class pipelines in production' },
+  { need: 'RAG + vector databases', have: 'pgvector, Qdrant-class pipelines in production' },
   { need: 'PDF parsing, OCR, document pipelines', have: 'Extraction pipelines on messy real-world documents' },
   { need: 'AEC domain', have: 'Construction & architecture engineering experience' },
 ]
 
-const CAPABILITIES = [
+const PROOF = [
   {
-    icon: '◈',
-    title: 'Full-Stack Web',
-    body: 'React 19 + TypeScript + Next.js frontends, Node (NestJS/Express) + Python (FastAPI) backends, REST APIs designed for scale.',
+    slug: 'tba',
+    title: 'TBA — AI Material Take-Off',
+    body: 'Computer vision + ML pipeline for construction material lists. 10 days → 3 days turnaround, 89.6% accuracy, 97.6% time reduction. Built with Nam Hoang at Simpson Strong-Tie.',
+    tag: 'AEC / CV / ML',
+    metric: '97.6% time cut',
   },
   {
-    icon: '✦',
-    title: 'LLM Integration',
-    body: 'OpenAI, Claude, and Gemini production integrations — structured outputs, function calling, and cost-aware routing.',
-  },
-  {
-    icon: '⬡',
-    title: 'RAG & Vector DBs',
-    body: 'pgvector, Qdrant-class retrieval with chunking, embedding, and re-ranking tuned for accuracy on domain docs.',
-  },
-  {
-    icon: '▤',
-    title: 'Document AI · OCR',
-    body: 'PDF parsing and OCR pipelines that turn construction specs, drawings annotations, and legacy docs into queryable data.',
-  },
-  {
-    icon: '⚙',
-    title: 'AI Agents & Prompt Engineering',
-    body: 'LangChain/LlamaIndex-class orchestration, tool-use agents, and prompt systems that hold up in production.',
-  },
-  {
-    icon: '☁',
-    title: 'Cloud & DevOps',
-    body: 'Docker, CI/CD, Postgres, and secure cloud deploys — from greenfield to hardened production.',
-  },
-]
-
-const AEC_FEATURES = [
-  {
-    title: 'Construction Document Q&A',
-    body: 'Ask a spec, get a cited answer. RAG over construction documents with source-grounded responses.',
-  },
-  {
-    title: 'Building Code Search',
-    body: 'Semantic search across codes and standards — find the clause that applies, not just the keyword.',
-  },
-  {
-    title: 'AI-Assisted Plan Review',
-    body: 'Parsing plan documents and drawings for review workflows — flag issues, reduce manual pass time.',
-  },
-  {
-    title: 'AI Estimation Workflows',
-    body: 'Extract quantities and cost drivers from documents to speed up estimation pipelines.',
+    slug: 'roofdata',
+    title: 'RoofData AI Estimator',
+    body: 'Node/Express/TS AI costing estimator — Claude prose generation, intent extraction, role-gated endpoints, RBAC + JWT, deployed on-prem.',
+    tag: 'LLM / Production',
+    metric: '9 projects · $14.22/sqft',
   },
 ]
 
 const TEAM = [
   {
     name: 'Phạm Hoàng Sơn',
-    role: 'Lead Fullstack + AI Engineer',
-    detail: 'The dedicated lead on your project — full-stack, LLM integration, RAG, document pipelines.',
+    role: 'Lead Fullstack + AI',
+    detail: 'The dedicated lead on your project — full-stack, LLM integration, RAG, document pipelines. Co-built TBA.',
     tags: ['React/TS/Next', 'Node + Python', 'RAG & LLMs', 'Postgres'],
-  },
-  {
-    name: 'Dinh Dat Vi',
-    role: 'Product Owner / BA',
-    detail: 'Product Owner at Zalo (VNG) — 4+ years product delivery, AI chatbot product (FriendifyAI), BSc Information Systems @ UIT, MBA @ UEH.',
-    tags: ['Product', 'BA', 'Zalo', 'UIT'],
-  },
-  {
-    name: 'Dang Xuan Truong',
-    role: 'Data / AI Engineer',
-    detail: 'Data Engineer at Zalo (VNG) — 4+ years ETL on Spark (billions of rows, Zalo/Zing MP3/Báo Mới). Built OCR baseline for Vietnamese scanned docs + facial recognition; ex-AI Engineer. BSc CS @ UIT, MSc in progress.',
-    tags: ['Spark', 'OCR', 'Python', 'AWS', 'Zalo', 'UIT'],
   },
   {
     name: 'Nam Hoang',
     role: 'Structural / AI-ML Engineer',
-    detail: 'Structural - AI/ML Engineer @ Simpson Strong-Tie Vietnam, Team Lead Data Analysis. Co-built TBA (CV/ML Material Take-Off) with Son. Civil engineering domain (AEC).',
+    detail: 'Structural - AI/ML Engineer @ Simpson Strong-Tie Vietnam. Co-built TBA (CV/ML Material Take-Off). Civil engineering domain (AEC).',
     tags: ['Computer Vision', 'ML', 'AEC', 'SST'],
   },
   {
-    name: 'Anh Dung Nguyen',
-    role: 'CEO / CTO',
-    detail: 'CEO at Universe Labs — strategic lead + technical direction. LinkedIn out of date; portfolio coming.',
-    tags: ['Strategy', 'Leadership', 'AI'],
+    name: 'Dang Xuan Truong',
+    role: 'Data / AI Engineer',
+    detail: 'Data Engineer at Zalo (VNG) — 4+ years ETL on Spark (billions of rows). Built OCR baseline for Vietnamese scanned docs.',
+    tags: ['Spark', 'OCR', 'Python', 'Zalo', 'UIT'],
   },
-]
-
-const PROOF_MEDIA = [
-  { slug: 'tba', title: 'TBA — AI Material Take-Off', body: 'Computer vision + ML pipeline for construction material lists. 10 days → 3 days turnaround, 89.6% accuracy, 97.6% time reduction. Built with Nam Hoang at Simpson Strong-Tie.', tag: 'AEC / CV / ML' },
-  { slug: 'roofdata', title: 'RoofData AI Estimator', body: 'Node/Express/TS AI costing estimator — Claude prose generation, intent extraction, role-gated endpoints, RBAC + JWT, deployed on-prem.', tag: 'LLM / Production' },
-  { slug: 'doc-ai', title: 'Document Intelligence', body: 'PDF/OCR extraction pipeline — specs in, structured data out.', tag: 'AI / RAG' },
-  { slug: 'rag-chat', title: 'RAG Chat', body: 'Chat over documents with cited answers.', tag: 'AI / RAG' },
-]
-
-const PROOF = PROOF_MEDIA
-
-const STYLE = [
-  { title: 'Remote-first, overlap with US', body: 'Full overlap with your timezone during your working window.' },
-  { title: 'Async by default', body: 'Jira, Notion, Figma, Confluence, Slack — fluent in your tooling.' },
-  { title: 'Ownership mindset', body: 'We deliver outcomes, not tickets. We ask why, then build.' },
-  { title: 'English-native communication', body: 'Clear written and spoken English across international teams.' },
+  {
+    name: 'Dinh Dat Vi',
+    role: 'Product Owner / BA',
+    detail: 'Product Owner at Zalo (VNG) — product delivery, AI chatbot product (FriendifyAI), BSc Information Systems @ UIT, MBA @ UEH.',
+    tags: ['Product', 'BA', 'Zalo', 'UIT'],
+  },
 ]
 
 function SectionHeading({ kicker, title }: { kicker: string; title: string }) {
@@ -137,7 +72,7 @@ function AssetUrl(slug: string, kind: 'cover' | 'video') {
   return `/input/${slug}-${kind}.${ext}`
 }
 
-function ProofCard({ p }: { p: { slug: string; title: string; body: string; tag: string } }) {
+function ProofCard({ p }: { p: { slug: string; title: string; body: string; tag: string; metric: string } }) {
   return (
     <Link
       to={`/project/${p.slug}`}
@@ -158,6 +93,9 @@ function ProofCard({ p }: { p: { slug: string; title: string; body: string; tag:
         <div className="font-mono-tech text-xs uppercase tracking-wider text-amber-400">{p.tag}</div>
         <h3 className="mt-3 text-base font-semibold text-white">{p.title}</h3>
         <p className="mt-2 text-sm text-slate-400">{p.body}</p>
+        <div className="mt-4 border-t border-white/10 pt-3 font-mono-tech text-sm font-bold text-amber-400">
+          {p.metric}
+        </div>
       </div>
     </Link>
   )
@@ -189,7 +127,7 @@ function App() {
           </div>
           <nav className="hidden gap-8 text-sm text-slate-400 md:flex">
             {NAV.map((item) => (
-              <a key={item} href={`#${item.toLowerCase().replace(/ /g, '-')}`} className="transition hover:text-amber-400">
+              <a key={item} href={`#${item.toLowerCase()}`} className="transition hover:text-amber-400">
                 {item}
               </a>
             ))}
@@ -204,45 +142,94 @@ function App() {
       </header>
 
       <main className="relative">
-        {/* HERO */}
-        <section id="top" className="mx-auto max-w-6xl px-6 pt-24 pb-20 md:pt-32 md:pb-28">
-          <div className="max-w-3xl">
-            <div className="font-mono-tech mb-6 inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-slate-300">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
-              AI Engineering · Construction & Architecture
+        {/* HERO — text left, proof panel right */}
+        <section id="top" className="mx-auto max-w-6xl px-6 pt-20 pb-24 md:pt-28 md:pb-28">
+          <div className="grid items-center gap-12 md:grid-cols-2">
+            <div>
+              <div className="font-mono-tech mb-6 inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-slate-300">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                AI Engineering · Construction & Architecture
+              </div>
+              <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
+                We build AI for the people who{' '}
+                <span className="text-amber-400">build the world.</span>
+              </h1>
+              <p className="mt-6 text-lg leading-relaxed text-slate-400">
+                A small team of senior engineers — 5+ years each, ex-FPT and ex-Zalo — who ship
+                production AI for construction: document intelligence, LLM integration, RAG, and
+                full-stack delivery.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <a
+                  href="#proof"
+                  className="rounded bg-amber-400 px-6 py-3 font-semibold text-[#0a0f16] transition hover:bg-amber-300"
+                >
+                  See what we deliver
+                </a>
+                <a
+                  href="#contact"
+                  className="rounded border border-white/20 px-6 py-3 font-medium text-white transition hover:border-amber-400/50 hover:text-amber-400"
+                >
+                  Talk to us
+                </a>
+              </div>
             </div>
-            <h1 className="text-4xl font-bold leading-tight text-white md:text-6xl">
-              We build AI for the people who{' '}
-              <span className="text-amber-400">build the world.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-400">
-              Buildform is a small team of senior engineers — 5+ years each, ex-FPT and ex-Zalo,
-              from Bách Khoa and UIT — who ship production AI: LLM integration, RAG and vector
-              databases, document intelligence, and full-stack delivery.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href="#capabilities"
-                className="rounded bg-amber-400 px-6 py-3 font-semibold text-[#0a0f16] transition hover:bg-amber-300"
-              >
-                See what we deliver
-              </a>
-              <a
-                href="#contact"
-                className="rounded border border-white/20 px-6 py-3 font-medium text-white transition hover:border-amber-400/50 hover:text-amber-400"
-              >
-                Talk to Son
-              </a>
+
+            {/* Hero proof panel — TBA */}
+            <Link
+              to="/project/tba"
+              className="group relative overflow-hidden border border-white/10 bg-white/[0.03]"
+            >
+              <img
+                src="/input/image9.png"
+                alt="TBA marked-up construction plan"
+                className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f16] via-[#0a0f16]/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                <div className="font-mono-tech text-xs uppercase tracking-wider text-amber-400">
+                  TBA · AI Material Take-Off
+                </div>
+                <div className="mt-2 flex flex-wrap items-end gap-x-6 gap-y-3">
+                  <div>
+                    <div className="font-mono-tech text-3xl font-bold text-white md:text-4xl">10→3</div>
+                    <div className="mt-0.5 text-xs font-medium text-slate-300">days turnaround</div>
+                  </div>
+                  <div>
+                    <div className="font-mono-tech text-3xl font-bold text-amber-400 md:text-4xl">89.6%</div>
+                    <div className="mt-0.5 text-xs font-medium text-slate-300">accuracy</div>
+                  </div>
+                  <div>
+                    <div className="font-mono-tech text-3xl font-bold text-amber-400 md:text-4xl">97.6%</div>
+                    <div className="mt-0.5 text-xs font-medium text-slate-300">time cut</div>
+                  </div>
+                </div>
+                <div className="mt-3 text-xs text-slate-400">
+                  Simpson Strong-Tie · built with Nam Hoang
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+
+        {/* PROOF — 2 real projects only */}
+        <section id="proof" className="border-t border-white/10 bg-[#0d141d]/60 py-20">
+          <div className="mx-auto max-w-6xl px-6">
+            <SectionHeading kicker="01 · Proof" title="Shipped, not slides." />
+            <div className="grid gap-5 md:grid-cols-2">
+              {PROOF.map((p) => (
+                <ProofCard key={p.slug} p={p} />
+              ))}
             </div>
           </div>
         </section>
 
-        {/* JD MATCH */}
-        <section id="capabilities" className="border-t border-white/10 bg-[#0d141d]/60 py-20">
+        {/* CAPABILITIES — JD mirror */}
+        <section id="capabilities" className="py-20">
           <div className="mx-auto max-w-6xl px-6">
-            <SectionHeading kicker="01 · Capabilities" title="You need. We deliver." />
+            <SectionHeading kicker="02 · Capabilities" title="You need. We deliver." />
             <div className="grid gap-4 md:grid-cols-2">
-              {JD_MATCH.map((m) => (
+              {CAPABILITIES.map((m) => (
                 <div key={m.need} className="flex gap-4 border border-white/10 bg-white/[0.03] p-5 transition hover:border-amber-400/40">
                   <div className="font-mono-tech text-amber-400">✓</div>
                   <div>
@@ -255,43 +242,10 @@ function App() {
           </div>
         </section>
 
-        {/* CAPABILITIES GRID */}
-        <section id="capabilities-grid" className="py-20">
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeading kicker="02 · What we do" title="Capabilities, not buzzwords." />
-            <div className="grid gap-5 md:grid-cols-3">
-              {CAPABILITIES.map((c) => (
-                <div key={c.title} className="group border border-white/10 bg-white/[0.03] p-6 transition hover:border-amber-400/40">
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center border border-amber-400/40 bg-amber-400/10 text-xl text-amber-400">
-                    {c.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold text-white">{c.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-400">{c.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* AEC FOCUS */}
-        <section id="aec-focus" className="border-y border-white/10 bg-[#0d141d]/60 py-20">
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeading kicker="03 · AEC Focus" title="Built for construction & architecture." />
-            <div className="grid gap-5 md:grid-cols-2">
-              {AEC_FEATURES.map((f) => (
-                <div key={f.title} className="border border-white/10 bg-white/[0.03] p-6 transition hover:border-amber-400/40">
-                  <h3 className="text-lg font-semibold text-white">{f.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-400">{f.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* TEAM */}
-        <section id="team" className="py-20">
+        <section id="team" className="border-t border-white/10 bg-[#0d141d]/60 py-20">
           <div className="mx-auto max-w-6xl px-6">
-            <SectionHeading kicker="04 · Team" title="One dedicated lead. A whole team behind." />
+            <SectionHeading kicker="03 · Team" title="One dedicated lead. A whole team behind." />
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
               {TEAM.map((t) => (
                 <div key={t.name} className="flex flex-col border border-white/10 bg-white/[0.03] p-6">
@@ -317,41 +271,14 @@ function App() {
           </div>
         </section>
 
-        {/* PROOF */}
-        <section id="proof" className="border-t border-white/10 bg-[#0d141d]/60 py-20">
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeading kicker="05 · Proof" title="Shipped, not slides." />
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-              {PROOF.map((p) => (
-                <ProofCard key={p.slug} p={p} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* WORKING STYLE */}
-        <section id="working-style" className="py-20">
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeading kicker="06 · Working Style" title="Built for your workflow." />
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-              {STYLE.map((s) => (
-                <div key={s.title} className="border border-white/10 bg-white/[0.03] p-6">
-                  <h3 className="font-semibold text-white">{s.title}</h3>
-                  <p className="mt-2 text-sm text-slate-400">{s.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* CTA / CONTACT */}
-        <section id="contact" className="border-t border-white/10 bg-[#0d141d]/60 py-24">
+        <section id="contact" className="py-24">
           <div className="mx-auto max-w-4xl px-6 text-center">
             <h2 className="text-3xl font-bold text-white md:text-5xl">
               Ready to build.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-slate-400">
-              We&apos;re ready to start on your document intelligence and AI workflows.
+              One dedicated lead, a full team behind, and AEC AI proof already shipped.
               Let&apos;s talk about your project.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
