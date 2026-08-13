@@ -18,12 +18,10 @@ const PROJECTS: Project[] = [
     body: 'Computer vision + ML pipeline for construction material lists at Simpson Strong-Tie. Automates PDF drawing interpretation: building info extraction, schedule table OCR, component markup, quantity estimation.',
     tag: 'AEC / CV / ML',
     gallery: [
-      '/input/tba-slide1.png',
-      '/input/image8.png',
-      '/input/image11.png',
-      '/input/image19.png',
-      '/input/image33.png',
-      '/input/image36.png',
+      { src: '/input/image8.png', caption: 'Problem — manual scope sheet / take-off document' },
+      { src: '/input/image19.png', caption: 'Extraction — drawing info → structured data' },
+      { src: '/input/image33.png', caption: 'Engine — quantity calculation workflow' },
+      { src: '/input/image36.png', caption: 'Outcome — automated quantity output' },
     ],
     metrics: [
       { label: 'Turnaround', value: '10 → 3 days' },
@@ -60,7 +58,7 @@ const PROJECTS: Project[] = [
       'Numeric calculations (Node owns numbers)',
       'Claude prose generation (explanations only)',
     ],
-    gallery: ['/input/roofdata-cover.jpg'],
+    gallery: [{ src: '/input/roofdata-cover.jpg', caption: 'AI Roof Estimator — full visibility, every card' }],
     tech: ['Node.js / Express', 'TypeScript', 'Claude API', 'Intent extraction', 'RBAC', 'JWT', 'Prompt engineering'],
   },
   {
@@ -164,9 +162,10 @@ export default function ProjectDetail() {
           <div className="mt-10">
             <h2 className="text-xl font-semibold text-white">Case study slides</h2>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              {project.gallery.map((src) => (
-                <div key={src} className="overflow-hidden rounded border border-white/10 bg-white/5">
-                  <img src={src} alt={`TBA slide ${src.split('/').pop()}`} loading="lazy" className="aspect-[4/3] w-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
+              {project.gallery.map((g) => (
+                <div key={g.src} className="overflow-hidden rounded border border-white/10 bg-white/5">
+                  <img src={g.src} alt={g.caption} loading="lazy" className="aspect-[4/3] w-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
+                  <div className="border-t border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-slate-400">{g.caption}</div>
                 </div>
               ))}
             </div>
