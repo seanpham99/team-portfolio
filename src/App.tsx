@@ -41,6 +41,7 @@ const TEAM = [
   {
     name: 'Phạm Hoàng Sơn',
     role: 'Lead Fullstack + AI',
+    avatar: '/input/son-avatar.jpg',
     detail: 'The dedicated lead on your project — full-stack, LLM integration, RAG, document pipelines.',
     tags: ['React/TS/Next', 'Node + Python', 'RAG & LLMs', 'Postgres'],
   },
