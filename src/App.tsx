@@ -53,6 +53,7 @@ const TEAM = [
   {
     name: 'Dang Xuan Truong',
     role: 'Data / AI Engineer',
+    avatar: '/input/truong-avatar.jpg',
     detail: 'Data Engineer at Zalo (VNG) — 4+ years ETL on Spark (billions of rows). Built OCR baseline for Vietnamese scanned docs.',
     tags: ['Spark', 'OCR', 'Python', 'Zalo', 'UIT'],
   },
@@ -260,9 +261,13 @@ function App() {
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
               {TEAM.map((t) => (
                 <div key={t.name} className="flex flex-col border border-white/10 bg-white/[0.03] p-6">
-                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-amber-400/40 bg-amber-400/10 font-mono-tech text-lg font-bold text-amber-400">
-                    {t.name.charAt(0)}
-                  </div>
+                  {t.avatar ? (
+                    <img src={t.avatar} alt={t.name} className="mb-4 h-14 w-14 rounded-full border border-amber-400/40 object-cover" />
+                  ) : (
+                    <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-amber-400/40 bg-amber-400/10 font-mono-tech text-lg font-bold text-amber-400">
+                      {t.name.charAt(0)}
+                    </div>
+                  )}
                   <h3 className="text-base font-semibold text-white">{t.name}</h3>
                   <div className="font-mono-tech text-xs uppercase tracking-wider text-amber-400">{t.role}</div>
                   <p className="mt-3 flex-1 text-sm text-slate-400">{t.detail}</p>
