@@ -20,12 +20,8 @@ const PROJECTS: Project[] = [
     gallery: [
       '/input/tba-slide1.png',
       '/input/image8.png',
-      '/input/image10.png',
       '/input/image11.png',
       '/input/image19.png',
-      '/input/image22.png',
-      '/input/image26.png',
-      '/input/image30.png',
       '/input/image33.png',
       '/input/image36.png',
     ],
