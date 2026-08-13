@@ -52,8 +52,8 @@ const TEAM = [
     name: 'Nam Hoang',
     role: 'Structural / AI-ML Engineer',
     avatar: '/input/nam-avatar.jpg',
-    detail: 'Structural - AI/ML Engineer with civil engineering domain (AEC). Co-built AI material take-off with Son.',
-    tags: ['Computer Vision', 'ML', 'AEC'],
+    detail: 'Structural Engineer-Data Analyst at Simpson Strong-Tie Vietnam (3+ yrs), led data analyst team, automated data pipelines, Project Kaizen of the Year award. Civil Eng (HAU) + M.Eng (Muroran, Japan) + M.Sc CS in progress.',
+    tags: ['Computer Vision', 'ML', 'AEC', 'Data Pipeline', 'Kaizen Award'],
   },
   {
     name: 'Dang Xuan Truong',
