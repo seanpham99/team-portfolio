@@ -1,4 +1,7 @@
 import { Link } from 'react-router-dom'
+import { TextureCard } from '@/components/ui/texture-card'
+import { GradientHeading } from '@/components/ui/gradient-heading'
+import { TextGif } from '@/components/ui/text-gif'
 
 const NAV = ['Proof', 'Capabilities', 'Team', 'Contact']
 
@@ -79,7 +82,7 @@ function SectionHeading({ kicker, title }: { kicker: string; title: string }) {
   return (
     <div className="mb-12">
       <div className="font-mono-tech text-sm tracking-widest text-amber-400 uppercase">{kicker}</div>
-      <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">{title}</h2>
+      <GradientHeading size="lg" weight="bold" className="mt-2 !text-white">{title}</GradientHeading>
     </div>
   )
 }
@@ -95,27 +98,29 @@ function ProofCard({ p }: { p: { slug: string; title: string; body: string; tag:
   return (
     <Link
       to={`/project/${p.slug}`}
-      className="group overflow-hidden border border-white/10 bg-white/[0.03] transition hover:border-amber-400/40"
+      className="group block"
     >
-      <div className="aspect-video bg-white/5">
-        <img
-          src={AssetUrl(p.slug, 'cover')}
-          alt={p.title}
-          loading="lazy"
-          className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-          onError={(e) => {
-            e.currentTarget.style.display = 'none'
-          }}
-        />
-      </div>
-      <div className="p-6">
-        <div className="font-mono-tech text-xs uppercase tracking-wider text-amber-400">{p.tag}</div>
-        <h3 className="mt-3 text-base font-semibold text-white">{p.title}</h3>
-        <p className="mt-2 text-sm text-slate-400">{p.body}</p>
-        <div className="mt-4 border-t border-white/10 pt-3 font-mono-tech text-sm font-bold text-amber-400">
-          {p.metric}
+      <TextureCard className="transition hover:border-amber-400/40">
+        <div className="aspect-video bg-white/5">
+          <img
+            src={AssetUrl(p.slug, 'cover')}
+            alt={p.title}
+            loading="lazy"
+            className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none'
+            }}
+          />
         </div>
-      </div>
+        <div className="p-6">
+          <div className="font-mono-tech text-xs tracking-wider text-amber-400">{p.tag}</div>
+          <h3 className="mt-3 text-base font-semibold text-white">{p.title}</h3>
+          <p className="mt-2 text-sm text-slate-400">{p.body}</p>
+          <div className="mt-4 border-t border-white/10 pt-3 font-mono-tech text-sm font-bold text-amber-400">
+            {p.metric}
+          </div>
+        </div>
+      </TextureCard>
     </Link>
   )
 }
@@ -171,7 +176,12 @@ function App() {
               </div>
               <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
                 We build AI for the people who{' '}
-                <span className="text-amber-400">build the world.</span>
+                <TextGif
+                  gifUrl="https://media.giphy.com/media/3zvbrvbRe7wxBofOBI/giphy.gif"
+                  text="build the world."
+                  size="xl"
+                  fallbackColor="#fbbf24"
+                />
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-slate-400">
                 A small team of senior engineers — 5+ years each, ex-FPT and ex-Zalo — who ship
