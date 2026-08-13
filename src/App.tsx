@@ -68,6 +68,7 @@ const TEAM = [
   {
     name: 'Dinh Dat Vi',
     role: 'Product Owner / BA',
+    avatar: '/input/vi-avatar.jpg',
     detail: 'Product Owner at Zalo (VNG) — product delivery, AI chatbot product (FriendifyAI), BSc Information Systems @ UIT, MBA @ UEH.',
     tags: ['Product', 'BA', 'Zalo', 'UIT'],
   },
