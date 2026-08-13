@@ -15,6 +15,13 @@ const CAPABILITIES = [
 
 const PROOF = [
   {
+    slug: 'tba',
+    title: 'AI Material Take-Off',
+    body: 'Computer vision + ML pipeline for construction material lists. 10 days → 3 days turnaround, 89.6% accuracy, 97.6% time reduction.',
+    tag: 'AEC / CV / ML',
+    metric: '97.6% time cut',
+  },
+  {
     slug: 'roofdata',
     title: 'AI Roof Estimator',
     body: 'Node/Express/TS AI costing estimator — intent extraction, confidence tiering, role-gated endpoints, RBAC + JWT, deployed on-prem.',
@@ -60,6 +67,7 @@ function SectionHeading({ kicker, title }: { kicker: string; title: string }) {
 }
 
 function AssetUrl(slug: string, kind: 'cover' | 'video') {
+  if (slug === 'tba' && kind === 'cover') return '/input/image33.png'
   const ext = kind === 'video' ? 'mp4' : 'jpg'
   return `/input/${slug}-${kind}.${ext}`
 }
@@ -167,29 +175,33 @@ function App() {
               </div>
             </div>
 
-            {/* Hero proof panel — RoofData */}
+            {/* Hero proof panel — TBA */}
             <Link
-              to="/project/roofdata"
+              to="/project/tba"
               className="group relative overflow-hidden border border-white/10 bg-white/[0.03]"
             >
               <img
-                src="/input/roofdata-cover.jpg"
-                alt="AI Roof Estimator dashboard"
+                src="/input/image9.png"
+                alt="AI Material Take-Off marked-up plan"
                 className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f16] via-[#0a0f16]/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
                 <div className="font-mono-tech text-xs uppercase tracking-wider text-amber-400">
-                  AI Roof Estimator
+                  AI Material Take-Off
                 </div>
                 <div className="mt-2 flex flex-wrap items-end gap-x-6 gap-y-3">
                   <div>
-                    <div className="font-mono-tech text-3xl font-bold text-white md:text-4xl">$14.22</div>
-                    <div className="mt-0.5 text-xs font-medium text-slate-300">combined cost / sqft</div>
+                    <div className="font-mono-tech text-3xl font-bold text-white md:text-4xl">10→3</div>
+                    <div className="mt-0.5 text-xs font-medium text-slate-300">days turnaround</div>
                   </div>
                   <div>
-                    <div className="font-mono-tech text-3xl font-bold text-amber-400 md:text-4xl">MODERATE</div>
-                    <div className="mt-0.5 text-xs font-medium text-slate-300">confidence tier</div>
+                    <div className="font-mono-tech text-3xl font-bold text-amber-400 md:text-4xl">89.6%</div>
+                    <div className="mt-0.5 text-xs font-medium text-slate-300">accuracy</div>
+                  </div>
+                  <div>
+                    <div className="font-mono-tech text-3xl font-bold text-amber-400 md:text-4xl">97.6%</div>
+                    <div className="mt-0.5 text-xs font-medium text-slate-300">time cut</div>
                   </div>
                 </div>
               </div>

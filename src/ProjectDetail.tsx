@@ -7,10 +7,38 @@ interface Project {
   tag: string
   metrics?: { label: string; value: string }[]
   workflow?: string[]
+  gallery?: { src: string; caption: string; wide?: boolean }[]
   tech: string[]
 }
 
 const PROJECTS: Project[] = [
+  {
+    slug: 'tba',
+    title: 'AI Material Take-Off',
+    body: 'Computer vision + ML pipeline for construction material lists. Automates PDF drawing interpretation: building info extraction, schedule table OCR, component markup, quantity estimation.',
+    tag: 'AEC / CV / ML',
+    metrics: [
+      { label: 'Turnaround', value: '10 → 3 days' },
+      { label: 'Time reduction', value: '97.6%' },
+      { label: 'Accuracy', value: '89.6%' },
+      { label: 'Scope', value: '60% of material list' },
+    ],
+    workflow: [
+      'Upload drawing files (.pdf)',
+      'Extract building info — raw text → structured JSON',
+      'Extract schedule tables via OCR',
+      'Human-in-the-loop validation',
+      'Trigger product quantity estimation',
+      'Package & deliver — product list (.xlsx) + marked-up drawing (.pdf)',
+    ],
+    gallery: [
+      { src: '/input/image8.png', caption: 'Problem — manual scope sheet / take-off document' },
+      { src: '/input/image19.png', caption: 'Extraction — drawing info → structured data', wide: true },
+      { src: '/input/image9.png', caption: 'Markup — CV component detection on plan' },
+      { src: '/input/image36.png', caption: 'Outcome — automated quantity output' },
+    ],
+    tech: ['Computer Vision', 'Machine Learning', 'PDF/SVG parsing', 'OCR', 'Vector format processing', 'Human-in-the-loop', 'AEC / Construction'],
+  },
   {
     slug: 'roofdata',
     title: 'AI Roof Estimator',
@@ -96,7 +124,7 @@ export default function ProjectDetail() {
 
         <div className="mt-10 w-full overflow-hidden rounded border border-white/10 bg-white/5">
           <img
-            src={`/input/${project.slug}-cover.jpg`}
+            src={`/input/${project.slug === 'tba' ? 'image33.png' : project.slug + '-cover.jpg'}`}
             alt={project.title}
             className="w-full object-contain"
             onError={(e) => {
@@ -104,6 +132,20 @@ export default function ProjectDetail() {
             }}
           />
         </div>
+
+        {project.gallery && project.gallery.length > 0 && (
+          <div className="mt-10">
+            <h2 className="text-xl font-semibold text-white">Case study</h2>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              {project.gallery.map((g) => (
+                <div key={g.src} className={`overflow-hidden rounded border border-white/10 bg-white/5 ${g.wide ? 'sm:col-span-2' : ''}`}>
+                  <img src={g.src} alt={g.caption} loading="lazy" className={`w-full ${g.wide ? 'aspect-auto object-contain' : 'aspect-[4/3] object-cover'}`} onError={(e) => (e.currentTarget.style.display = 'none')} />
+                  <div className="border-t border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-slate-400">{g.caption}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="mt-10 flex flex-wrap gap-2">
           {project.tech.map((t) => (
