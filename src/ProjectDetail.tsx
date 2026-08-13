@@ -5,7 +5,7 @@ interface Project {
   title: string
   body: string
   tag: string
-  gallery?: string[]
+  gallery?: { src: string; caption: string }[]
   metrics?: { label: string; value: string }[]
   workflow?: string[]
   tech: string[]
