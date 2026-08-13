@@ -52,8 +52,8 @@ const TEAM = [
     name: 'Nam Hoang',
     role: 'Structural / AI-ML Engineer',
     avatar: '/input/nam-avatar.jpg',
-    detail: 'Structural Engineer-Data Analyst at Simpson Strong-Tie Vietnam (3+ yrs), led data analyst team, automated data pipelines, Project Kaizen of the Year award. Civil Eng (HAU) + M.Eng (Muroran, Japan) + M.Sc CS in progress.',
-    tags: ['Computer Vision', 'ML', 'AEC', 'Data Pipeline', 'Kaizen Award'],
+    detail: 'Structural - AI/ML Engineer, civil engineering domain (AEC). Co-built AI material take-off with Son. Simpson Strong-Tie.',
+    tags: ['Computer Vision', 'ML', 'AEC'],
   },
   {
     name: 'Dang Xuan Truong',
@@ -143,10 +143,10 @@ function App() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
             <span className="flex h-8 w-8 items-center justify-center border border-amber-400/60 bg-amber-400/10 font-mono-tech text-sm font-bold text-amber-400">
-              B
+              AI
             </span>
-            <span className="font-mono-tech text-lg font-bold tracking-tight text-white">
-              BUILD<span className="text-amber-400">FORM</span>
+            <span className="font-mono-tech text-sm font-semibold tracking-tight text-white">
+              AI Engineering · Construction & Architecture
             </span>
           </div>
           <nav className="hidden gap-8 text-sm text-slate-400 md:flex">
@@ -177,7 +177,7 @@ function App() {
             <div>
               <div className="font-mono-tech mb-6 inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-slate-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                AI Engineering · Construction & Architecture
+                AI for AEC · Vietnam
               </div>
               <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
                 We build AI for the people who{' '}
@@ -298,7 +298,7 @@ function App() {
               ))}
             </div>
             <p className="mt-8 font-mono-tech text-sm text-slate-500">
-              // ex-FPT · ex-Zalo · Bách Khoa · UIT — 5+ years each
+              // ex-FPT · ex-Zalo · AEC engineers — 5+ years each
             </p>
           </div>
         </section>
