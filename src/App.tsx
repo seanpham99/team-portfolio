@@ -48,6 +48,7 @@ const TEAM = [
   {
     name: 'Nam Hoang',
     role: 'Structural / AI-ML Engineer',
+    avatar: '/input/nam-avatar.jpg',
     detail: 'Structural - AI/ML Engineer with civil engineering domain (AEC). Co-built AI material take-off with Son.',
     tags: ['Computer Vision', 'ML', 'AEC'],
   },
