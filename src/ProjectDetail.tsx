@@ -5,6 +5,7 @@ interface Project {
   title: string
   body: string
   tag: string
+  source?: string
   metrics?: { label: string; value: string }[]
   workflow?: string[]
   gallery?: { src: string; caption: string; wide?: boolean }[]
@@ -66,6 +67,7 @@ const PROJECTS: Project[] = [
     title: 'VoiceGPT',
     body: 'Voice-first ChatGPT interface built on OpenAI — Vietnamese + English speech with 98% accuracy, voice-to-text input, text-to-speech answers, and art generation from prompts. Reached 70,000+ registered users in its first month, covered by VnExpress.',
     tag: 'Voice AI / LLM Product',
+    source: 'https://vnexpress.net/startup-viet-phat-trien-voicegpt-4570210.html',
     metrics: [
       { label: 'Users', value: '70,000+' },
       { label: 'Time to scale', value: '1 month' },
@@ -117,6 +119,17 @@ export default function ProjectDetail() {
         <div className="mt-8 font-mono-tech text-xs uppercase tracking-widest text-amber-400">{project.tag}</div>
         <h1 className="mt-2 text-4xl font-bold text-white md:text-5xl">{project.title}</h1>
         <p className="mt-4 text-lg text-slate-400">{project.body}</p>
+
+  {project.source && (
+    <a
+      href={project.source}
+      target="_blank"
+      rel="noreferrer"
+      className="mt-4 inline-flex items-center gap-2 rounded border border-amber-400/40 px-4 py-2 text-sm text-amber-400 transition hover:bg-amber-400/10"
+    >
+      VnExpress coverage ↗
+    </a>
+  )}
 
         {project.metrics && (
           <div className="mt-10 grid gap-4 md:grid-cols-4">
