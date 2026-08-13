@@ -5,7 +5,7 @@ interface Project {
   title: string
   body: string
   tag: string
-  gallery?: { src: string; caption: string }[]
+  gallery?: { src: string; caption: string; wide?: boolean }[]
   metrics?: { label: string; value: string }[]
   workflow?: string[]
   tech: string[]
@@ -19,7 +19,7 @@ const PROJECTS: Project[] = [
     tag: 'AEC / CV / ML',
     gallery: [
       { src: '/input/image8.png', caption: 'Problem — manual scope sheet / take-off document' },
-      { src: '/input/image19.png', caption: 'Extraction — drawing info → structured data' },
+      { src: '/input/image19.png', caption: 'Extraction — drawing info → structured data', wide: true },
       { src: '/input/image33.png', caption: 'Engine — quantity calculation workflow' },
       { src: '/input/image36.png', caption: 'Outcome — automated quantity output' },
     ],
@@ -138,7 +138,7 @@ export default function ProjectDetail() {
 
         <div className="mt-10 aspect-video w-full overflow-hidden rounded border border-white/10 bg-white/5">
           <img
-            src={`/input/${project.slug}-cover.jpg`}
+            src={`/input/${project.slug === 'tba' ? 'image33.png' : project.slug + '-cover.jpg'}`}
             alt={project.title}
             className="h-full w-full object-cover"
             onError={(e) => {
@@ -163,8 +163,8 @@ export default function ProjectDetail() {
             <h2 className="text-xl font-semibold text-white">Case study slides</h2>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               {project.gallery.map((g) => (
-                <div key={g.src} className="overflow-hidden rounded border border-white/10 bg-white/5">
-                  <img src={g.src} alt={g.caption} loading="lazy" className="aspect-[4/3] w-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
+                <div key={g.src} className={`overflow-hidden rounded border border-white/10 bg-white/5 ${g.wide ? 'sm:col-span-2' : ''}`}>
+                  <img src={g.src} alt={g.caption} loading="lazy" className={`w-full ${g.wide ? 'max-h-48 object-contain' : 'aspect-[4/3] object-cover'}`} onError={(e) => (e.currentTarget.style.display = 'none')} />
                   <div className="border-t border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-slate-400">{g.caption}</div>
                 </div>
               ))}

@@ -132,6 +132,7 @@ function SectionHeading({ kicker, title }: { kicker: string; title: string }) {
 }
 
 function AssetUrl(slug: string, kind: 'cover' | 'video') {
+  if (slug === 'tba' && kind === 'cover') return '/input/image33.png'
   const ext = kind === 'video' ? 'mp4' : 'jpg'
   return `/input/${slug}-${kind}.${ext}`
 }
