@@ -65,7 +65,7 @@ const PROJECTS: Project[] = [
   {
     slug: 'voicegpt',
     title: 'VoiceGPT',
-    body: 'Voice-first ChatGPT interface built on OpenAI — Vietnamese + English speech with 98% accuracy, voice-to-text input, text-to-speech answers, and art generation from prompts. Reached 70,000+ registered users in its first month, covered by VnExpress.',
+    body: 'Voice-first ChatGPT interface built at Tesse Technology on OpenAI — Vietnamese + English speech with 98% accuracy, voice-to-text input, text-to-speech answers, and art generation from prompts. Reached 70,000+ registered users in its first month, covered by VnExpress.',
     tag: 'Voice AI / LLM Product',
     source: 'https://vnexpress.net/startup-viet-phat-trien-voicegpt-4570210.html',
     metrics: [
@@ -82,7 +82,7 @@ const PROJECTS: Project[] = [
       'Invite-gated signup for capacity control',
       'Press coverage: VnExpress, Feb 2023',
     ],
-    tech: ['Voice AI', 'Speech-to-text', 'Text-to-speech', 'OpenAI / ChatGPT API', 'Vietnamese + English', 'Consumer product', 'Prompt-based art generation'],
+    tech: ['Voice AI', 'Speech-to-text', 'Text-to-speech', 'OpenAI / ChatGPT API', 'Vietnamese + English', 'Consumer product', 'Prompt-based art generation', 'Tesse Technology R&D'],
   },
 ]
 

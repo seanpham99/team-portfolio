@@ -57,10 +57,10 @@ const TEAM = [
     tags: ['Spark', 'OCR', 'Python', 'Zalo', 'UIT'],
   },
   {
-      name: 'Anh Dung Nguyen',
-      role: 'AI Engineer',
-      detail: 'Shipped AI products across voice, vision, and agentic automation — VoiceGPT (70k users), SOTA AI vision platform, AutoBiz AI operations.',
-      tags: ['Voice AI', 'Vision AI', 'LLM Agents', 'Product'],
+    name: 'Anh Dung Nguyen',
+    role: 'AI Engineer',
+    detail: 'R&D lead at Tesse (VoiceGPT) and Universe Labs — shipped VoiceGPT (70k users), AI integration for business clients across VN, Singapore, Australia, Canada. Unity/3D + digital twin, LLM & vision AI.',
+    tags: ['Voice AI', 'Vision AI', 'LLM Agents', 'Digital Twin'],
   },
   {
     name: 'Dinh Dat Vi',
