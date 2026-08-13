@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { TextureCard } from '@/components/ui/texture-card'
 import { GradientHeading } from '@/components/ui/gradient-heading'
-import { TextGif } from '@/components/ui/text-gif'
+import { Spotlight } from '@/components/ui/spotlight-new'
 
 const NAV = ['Proof', 'Capabilities', 'Team', 'Contact']
 
@@ -167,8 +167,13 @@ function App() {
 
       <main className="relative">
         {/* HERO — text left, proof panel right */}
-        <section id="top" className="mx-auto max-w-6xl px-6 pt-20 pb-24 md:pt-28 md:pb-28">
-          <div className="grid items-center gap-12 md:grid-cols-2">
+        <section id="top" className="relative mx-auto max-w-6xl px-6 pt-20 pb-24 md:pt-28 md:pb-28">
+          <Spotlight
+            className="-top-40 left-0 md:left-60 md:-top-20"
+            gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(38, 92%, 50%, .12) 0, hsla(38, 92%, 45%, .03) 50%, hsla(38, 92%, 40%, 0) 80%)"
+            gradientSecond="radial-gradient(50% 50% at 50% 50%, hsla(38, 92%, 50%, .08) 0, hsla(38, 92%, 45%, .02) 80%, transparent 100%)"
+          />
+          <div className="relative grid items-center gap-12 md:grid-cols-2">
             <div>
               <div className="font-mono-tech mb-6 inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-slate-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -176,12 +181,9 @@ function App() {
               </div>
               <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
                 We build AI for the people who{' '}
-                <TextGif
-                  gifUrl="https://media.giphy.com/media/3zvbrvbRe7wxBofOBI/giphy.gif"
-                  text="build the world."
-                  size="xl"
-                  fallbackColor="#fbbf24"
-                />
+                <span className="bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 bg-clip-text text-transparent">
+                  build the world.
+                </span>
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-slate-400">
                 A small team of senior engineers — 5+ years each, ex-FPT and ex-Zalo — who ship
