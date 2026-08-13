@@ -81,6 +81,12 @@ const TEAM = [
     tags: ['React/TS/Next', 'Node + Python', 'RAG & LLMs', 'Postgres'],
   },
   {
+    name: 'Dinh Dat Vi',
+    role: 'Product Owner / BA',
+    detail: 'Product Owner at Zalo (VNG) — 4+ years product delivery, AI chatbot product (FriendifyAI), BSc Information Systems @ UIT, MBA @ UEH.',
+    tags: ['Product', 'BA', 'Zalo', 'UIT'],
+  },
+  {
     name: 'AI Engineer — FPT / BK',
     role: 'Supporting',
     detail: '5+ years, FPT background, Bách Khoa. LLM integration and AI product engineering.',
