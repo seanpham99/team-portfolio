@@ -87,10 +87,10 @@ const TEAM = [
     tags: ['Product', 'BA', 'Zalo', 'UIT'],
   },
   {
-    name: 'AI Engineer — FPT / BK',
-    role: 'Supporting',
-    detail: '5+ years, FPT background, Bách Khoa. LLM integration and AI product engineering.',
-    tags: ['LLMs', 'RAG', 'AI Products'],
+    name: 'Dang Xuan Truong',
+    role: 'Data / AI Engineer',
+    detail: 'Data Engineer at Zalo (VNG) — 4+ years ETL on Spark (billions of rows, Zalo/Zing MP3/Báo Mới). Built OCR baseline for Vietnamese scanned docs + facial recognition; ex-AI Engineer. BSc CS @ UIT, MSc in progress.',
+    tags: ['Spark', 'OCR', 'Python', 'AWS', 'Zalo', 'UIT'],
   },
   {
     name: 'Frontend Specialist — Zalo / UIT',
