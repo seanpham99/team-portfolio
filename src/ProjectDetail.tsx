@@ -20,7 +20,6 @@ const PROJECTS: Project[] = [
     gallery: [
       { src: '/input/image8.png', caption: 'Problem — manual scope sheet / take-off document' },
       { src: '/input/image19.png', caption: 'Extraction — drawing info → structured data', wide: true },
-      { src: '/input/image33.png', caption: 'Engine — quantity calculation workflow', wide: true },
       { src: '/input/image36.png', caption: 'Outcome — automated quantity output' },
     ],
     metrics: [
