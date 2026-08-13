@@ -50,10 +50,10 @@ const TEAM = [
     tags: ['Spark', 'OCR', 'Python', 'Zalo', 'UIT'],
   },
   {
-    name: 'Dinh Dat Vi',
-    role: 'Product Owner / BA',
-    detail: 'Product Owner at Zalo (VNG) — product delivery, AI chatbot product (FriendifyAI), BSc Information Systems @ UIT, MBA @ UEH.',
-    tags: ['Product', 'BA', 'Zalo', 'UIT'],
+      name: 'Anh Dung Nguyen',
+      role: 'AI Engineer',
+      detail: 'Shipped AI products across voice, vision, and agentic automation — VoiceGPT (70k users), SOTA AI vision platform, AutoBiz AI operations.',
+      tags: ['Voice AI', 'Vision AI', 'LLM Agents', 'Product'],
   },
 ]
 
