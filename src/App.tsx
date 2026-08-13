@@ -1,4 +1,6 @@
 
+import { Link } from 'react-router-dom'
+
 const NAV = [
   'Capabilities',
   'AEC Focus',
@@ -98,28 +100,14 @@ const TEAM = [
   },
 ]
 
-const PROOF = [
-  {
-    title: 'LLM-Powered Document Intelligence',
-    body: 'RAG + vector retrieval over real document sets, production LLM integrations.',
-    tag: 'AI / RAG',
-  },
-  {
-    title: 'Full-Stack Product Delivery',
-    body: 'React/TS frontends with Node/Python services, Postgres, Docker, CI/CD to cloud.',
-    tag: 'Full-Stack',
-  },
-  {
-    title: 'Document & OCR Pipelines',
-    body: 'Extraction pipelines on messy, real-world documents — PDFs, scans, annotations.',
-    tag: 'Document AI',
-  },
-  {
-    title: 'AEC Engineering Background',
-    body: 'Construction and architecture engineering domain — we speak your industry.',
-    tag: 'AEC Domain',
-  },
+const PROOF_MEDIA = [
+  { slug: 'doc-ai', title: 'Document Intelligence', body: 'PDF/OCR extraction pipeline — specs in, structured data out.', tag: 'AI / RAG' },
+  { slug: 'rag-chat', title: 'RAG Chat', body: 'Chat over documents with cited answers.', tag: 'AI / RAG' },
+  { slug: 'fullstack', title: 'Full-Stack Product', body: 'React/TS + Node/Python + Postgres shipped.', tag: 'Full-Stack' },
+  { slug: 'aec', title: 'AEC Project', body: 'Construction/architecture domain work.', tag: 'AEC Domain' },
 ]
+
+const PROOF = PROOF_MEDIA
 
 const STYLE = [
   { title: 'Remote-first, overlap with US', body: 'Full overlap with your timezone during your working window.' },
@@ -134,6 +122,37 @@ function SectionHeading({ kicker, title }: { kicker: string; title: string }) {
       <div className="font-mono-tech text-sm tracking-widest text-amber-400 uppercase">{kicker}</div>
       <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">{title}</h2>
     </div>
+  )
+}
+
+function AssetUrl(slug: string, kind: 'cover' | 'video') {
+  const ext = kind === 'video' ? 'mp4' : 'jpg'
+  return `/assets/${slug}-${kind}.${ext}`
+}
+
+function ProofCard({ p }: { p: { slug: string; title: string; body: string; tag: string } }) {
+  return (
+    <Link
+      to={`/project/${p.slug}`}
+      className="group overflow-hidden border border-white/10 bg-white/[0.03] transition hover:border-amber-400/40"
+    >
+      <div className="aspect-video bg-white/5">
+        <img
+          src={AssetUrl(p.slug, 'cover')}
+          alt={p.title}
+          loading="lazy"
+          className="h-full w-full object-cover opacity-0 transition group-hover:opacity-100"
+          onError={(e) => {
+            e.currentTarget.style.display = 'none'
+          }}
+        />
+      </div>
+      <div className="p-6">
+        <div className="font-mono-tech text-xs uppercase tracking-wider text-amber-400">{p.tag}</div>
+        <h3 className="mt-3 text-base font-semibold text-white">{p.title}</h3>
+        <p className="mt-2 text-sm text-slate-400">{p.body}</p>
+      </div>
+    </Link>
   )
 }
 
@@ -297,11 +316,7 @@ function App() {
             <SectionHeading kicker="05 · Proof" title="Shipped, not slides." />
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
               {PROOF.map((p) => (
-                <div key={p.title} className="border border-white/10 bg-white/[0.03] p-6 transition hover:border-amber-400/40">
-                  <div className="font-mono-tech text-xs uppercase tracking-wider text-amber-400">{p.tag}</div>
-                  <h3 className="mt-3 text-base font-semibold text-white">{p.title}</h3>
-                  <p className="mt-2 text-sm text-slate-400">{p.body}</p>
-                </div>
+                <ProofCard key={p.slug} p={p} />
               ))}
             </div>
           </div>
