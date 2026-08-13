@@ -108,9 +108,9 @@ const TEAM = [
 
 const PROOF_MEDIA = [
   { slug: 'tba', title: 'TBA — AI Material Take-Off', body: 'Computer vision + ML pipeline for construction material lists. 10 days → 3 days turnaround, 89.6% accuracy, 97.6% time reduction. Built with Nam Hoang at Simpson Strong-Tie.', tag: 'AEC / CV / ML' },
+  { slug: 'roofdata', title: 'RoofData AI Estimator', body: 'Node/Express/TS AI costing estimator — Claude prose generation, intent extraction, role-gated endpoints, RBAC + JWT, deployed on-prem.', tag: 'LLM / Production' },
   { slug: 'doc-ai', title: 'Document Intelligence', body: 'PDF/OCR extraction pipeline — specs in, structured data out.', tag: 'AI / RAG' },
   { slug: 'rag-chat', title: 'RAG Chat', body: 'Chat over documents with cited answers.', tag: 'AI / RAG' },
-  { slug: 'fullstack', title: 'Full-Stack Product', body: 'React/TS + Node/Python + Postgres shipped.', tag: 'Full-Stack' },
 ]
 
 const PROOF = PROOF_MEDIA
