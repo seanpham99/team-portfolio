@@ -164,7 +164,7 @@ export default function ProjectDetail() {
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               {project.gallery.map((g) => (
                 <div key={g.src} className={`overflow-hidden rounded border border-white/10 bg-white/5 ${g.wide ? 'sm:col-span-2' : ''}`}>
-                  <img src={g.src} alt={g.caption} loading="lazy" className={`w-full ${g.wide ? 'max-h-48 object-contain' : 'aspect-[4/3] object-cover'}`} onError={(e) => (e.currentTarget.style.display = 'none')} />
+                  <img src={g.src} alt={g.caption} loading="lazy" className={`w-full ${g.wide ? 'aspect-auto object-contain' : 'aspect-[4/3] object-cover'}`} onError={(e) => (e.currentTarget.style.display = 'none')} />
                   <div className="border-t border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-slate-400">{g.caption}</div>
                 </div>
               ))}
