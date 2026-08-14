@@ -20,7 +20,7 @@ const PROJECTS: Project[] = [
     tag: 'AEC / CV / ML',
     metrics: [
       { label: 'Turnaround', value: '10 → 3 days' },
-      { label: 'Time reduction', value: '97.6%' },
+      { label: 'Time reduction', value: '70%' },
       { label: 'Accuracy', value: '89.6%' },
       { label: 'Scope', value: '60% of material list' },
     ],

@@ -21,9 +21,9 @@ const PROOF = [
   {
     slug: 'tba',
     title: 'AI Material Take-Off',
-    body: 'Computer vision + ML pipeline for construction material lists. 10 days → 3 days turnaround, 89.6% accuracy, 97.6% time reduction.',
+    body: 'Computer vision + ML pipeline for construction material lists. 10 days → 3 days turnaround, 89.6% accuracy, 70% time reduction.',
     tag: 'AEC / CV / ML',
-    metric: '97.6% time cut',
+    metric: '70% time cut',
   },
   {
     slug: 'roofdata',
@@ -246,7 +246,7 @@ function App() {
                     <div className="mt-0.5 text-xs font-medium text-slate-300">accuracy</div>
                   </div>
                   <div>
-                    <div className="font-mono-tech text-3xl font-bold text-amber-400 md:text-4xl">97.6%</div>
+                    <div className="font-mono-tech text-3xl font-bold text-amber-400 md:text-4xl">70%</div>
                     <div className="mt-0.5 text-xs font-medium text-slate-300">time cut</div>
                   </div>
                 </div>
@@ -332,14 +332,14 @@ function App() {
 
         {/* CTA / CONTACT */}
         <section id="contact" className="border-t border-white/10 bg-[#0d141d]/60 py-24">
-          <div className="mx-auto max-w-4xl px-6 text-left">
+          <div className="mx-auto max-w-4xl px-6 text-center">
             <h2 className="text-3xl font-bold text-white md:text-5xl">
               Ready to build.
             </h2>
-            <p className="mt-4 max-w-xl text-lg text-slate-400">
+            <p className="mx-auto mt-4 max-w-xl text-lg text-slate-400">
               Let&apos;s talk about your project.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a
                 href="mailto:phamhoangson2611@gmail.com"
                 className="rounded bg-amber-400 px-8 py-3 font-semibold text-[#0a0f16] transition hover:bg-amber-300"
