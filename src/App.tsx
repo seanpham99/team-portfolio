@@ -40,27 +40,39 @@ const PROOF = [
   },
 ]
 
-const TEAM = [
+type TeamMember = {
+  name: string
+  role: string
+  avatar: string
+  detail: string
+  tags: string[]
+  linkedin?: string
+}
+
+const TEAM: TeamMember[] = [
   {
     name: 'Son Pham',
-    role: 'Fullstack + AI',
+    role: 'Data Engineer / Full-stack Developer',
     avatar: '/input/son-avatar.jpg',
-    detail: 'Full-stack, LLM integration, RAG, document pipelines.',
+    detail: 'Data Engineer at Swiss asset management firm. Also experienced in full-stack development, and LLM integration.',
     tags: ['React/TS/Next', 'Node + Python', 'RAG & LLMs'],
+    linkedin: 'https://www.linkedin.com/in/phamhoangson2611',
   },
   {
     name: 'Nam Nguyen',
     role: 'Structural / AI-ML Engineer',
     avatar: '/input/nam-avatar.jpg',
     detail: 'Structural - AI/ML Engineer, civil engineering domain (AEC). Co-built AI material take-off with Son.',
-    tags: ['Computer Vision', 'ML', 'AEC'],
+    tags: ['Computer Vision', 'Machine Learning', 'Deep Learning', 'AEC'],
+    linkedin: 'https://www.linkedin.com/in/nam-hoang-46a2ba219',
   },
   {
     name: 'Truong Dang',
     role: 'Data / AI Engineer',
     avatar: '/input/truong-avatar.jpg',
-    detail: 'Data Engineer for well-known Vietnam Social Network — 4+ years ETL on Spark (billions of rows). Built OCR baseline for Vietnamese scanned docs.',
-    tags: ['Spark', 'OCR', 'Python'],
+    detail: 'Data Engineer for most popular Vietnamese Social Network — 4+ years ETL on Spark (billions of rows). Experienced in developing, training, and deploying end-to-end AI models.',
+    tags: ['Spark', 'Machine Learning', 'Computer Vision'],
+    linkedin: 'https://www.linkedin.com/in/xuantruongdang/',
   },
   {
     name: 'Anh Dung Nguyen',
@@ -68,6 +80,7 @@ const TEAM = [
     avatar: '/input/dung-avatar.jpg',
     detail: 'R&D lead at Tesse (VoiceGPT) and Universe Labs — shipped VoiceGPT (70k users), AI integration for business clients across VN, Singapore, Australia, Canada. Unity/3D + digital twin, LLM & vision AI.',
     tags: ['Voice AI', 'Vision AI', 'LLM Agents', 'Digital Twin'],
+    linkedin: 'https://www.linkedin.com/in/nguyen-dung-anh/',
   },
   {
     name: 'Dinh Dat Vi',
@@ -75,6 +88,14 @@ const TEAM = [
     avatar: '/input/vi-avatar.jpg',
     detail: 'Ex-Product Owner at Zalo (VNG) — product delivery, AI chatbot product (FriendifyAI), BSc Information Systems @ UIT, MBA @ UEH.',
     tags: ['Product', 'BA'],
+    linkedin: 'https://www.linkedin.com/in/dinhdatvi',
+  },
+  {
+    name: 'To Thao Nhi',
+    role: 'In-House Legal',
+    avatar: '/input/nhi-avatar.jpg',
+    detail: '5+ years in FDI companies — contract drafting/review, corporate compliance, risk management across IT, corporate setup, marketing, IP.',
+    tags: ['Legal', 'Compliance', 'Contracts', 'Risk'],
   },
 ]
 
@@ -141,14 +162,6 @@ function App() {
       {/* NAV */}
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0a0f16]/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-2">
-            <span className="flex h-8 w-8 items-center justify-center border border-amber-400/60 bg-amber-400/10 font-mono-tech text-sm font-bold text-amber-400">
-              AI
-            </span>
-            <span className="font-mono-tech text-sm font-semibold tracking-tight text-white">
-              AI Engineering · Construction & Architecture
-            </span>
-          </div>
           <nav className="hidden gap-8 text-sm text-slate-400 md:flex">
             {NAV.map((item) => (
               <a key={item} href={`#${item.toLowerCase()}`} className="transition hover:text-amber-400">
@@ -186,8 +199,8 @@ function App() {
                 </span>
               </h1>
               <p className="mt-6 text-lg leading-relaxed text-slate-400">
-                A small team of senior engineers — 5+ years each, ex-FPT and ex-Zalo — who ship
-                production AI for construction: document intelligence, LLM integration, RAG, and
+                A small software development team — who ship
+                production AI solutions: document intelligence, LLM integration, RAG, and
                 full-stack delivery.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
@@ -274,7 +287,7 @@ function App() {
         <section id="team" className="border-t border-white/10 bg-[#0d141d]/60 py-20">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeading kicker="03 · Team" title="Meet our amazing team members" />
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {TEAM.map((t) => (
                 <div key={t.name} className="flex flex-col border border-white/10 bg-white/[0.03] p-6">
                   {t.avatar ? (
@@ -285,7 +298,22 @@ function App() {
                     </div>
                   )}
                   <h3 className="text-base font-semibold text-white">{t.name}</h3>
-                  <div className="font-mono-tech text-xs uppercase tracking-wider text-amber-400">{t.role}</div>
+                  <div className="flex items-center gap-2">
+                    <div className="font-mono-tech text-xs uppercase tracking-wider text-amber-400">{t.role}</div>
+                    {t.linkedin && (
+                      <a
+                        href={t.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${t.name} on LinkedIn`}
+                        className="text-slate-500 transition hover:text-amber-400"
+                      >
+                        <svg viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5">
+                          <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                   <p className="mt-3 flex-1 text-sm text-slate-400">{t.detail}</p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {t.tags.map((tag) => (
@@ -298,7 +326,7 @@ function App() {
               ))}
             </div>
             <p className="mt-8 font-mono-tech text-sm text-slate-500">
-              // We are a small software development team, but we have shipped production AI for construction and architecture. Our team has experience in full-stack development, LLM integration, RAG, document pipelines, and AEC domain knowledge.
+              // We are a small software development team, but our combined experience spans full-stack development, AI/ML, and the AEC domain.
             </p>
           </div>
         </section>
@@ -310,7 +338,6 @@ function App() {
               Ready to build.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-slate-400">
-              One dedicated lead, a full team behind, and AEC AI proof already shipped.
               Let&apos;s talk about your project.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -330,12 +357,6 @@ function App() {
           </div>
         </section>
       </main>
-
-      <footer className="border-t border-white/10 py-8">
-        <div className="mx-auto max-w-6xl px-6 font-mono-tech text-xs text-slate-600">
-          © {new Date().getFullYear()} AI Engineering for Construction & Architecture
-        </div>
-      </footer>
     </div>
   )
 }
