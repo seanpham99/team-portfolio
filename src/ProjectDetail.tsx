@@ -1,5 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 
+const BASE = import.meta.env.BASE_URL
+
 interface Project {
   slug: string
   title: string
@@ -33,10 +35,10 @@ const PROJECTS: Project[] = [
       'Package & deliver — product list (.xlsx) + marked-up drawing (.pdf)',
     ],
     gallery: [
-      { src: '/input/image9.png', caption: 'Markup — CV component detection on plan', wide: true },
-      { src: '/input/image11.png', caption: 'Problem — construction drawing with markups' },
-      { src: '/input/image19.png', caption: 'Extraction — drawing info → structured data' },
-      { src: '/input/image36.png', caption: 'Outcome — automated quantity output' },
+      { src: `${BASE}input/image9.png`, caption: 'Markup — CV component detection on plan', wide: true },
+      { src: `${BASE}input/image11.png`, caption: 'Problem — construction drawing with markups' },
+      { src: `${BASE}input/image19.png`, caption: 'Extraction — drawing info → structured data' },
+      { src: `${BASE}input/image36.png`, caption: 'Outcome — automated quantity output' },
     ],
     tech: ['Computer Vision', 'Machine Learning', 'PDF/SVG parsing', 'OCR', 'Vector format processing', 'Human-in-the-loop', 'AEC / Construction'],
   },
