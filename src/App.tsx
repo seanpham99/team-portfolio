@@ -190,7 +190,7 @@ function App() {
             <div>
               <div className="font-mono-tech mb-6 inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-slate-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                AI for AEC · Vietnam
+                Base in Vietnam — serving clients worldwide
               </div>
               <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
                 We build AI for the people who{' '}
