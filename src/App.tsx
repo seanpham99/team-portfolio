@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { cn } from '@/lib/utils'
 import { TextureCard } from '@/components/ui/texture-card'
 import { GradientHeading } from '@/components/ui/gradient-heading'
 import { Spotlight } from '@/components/ui/spotlight-new'
@@ -96,6 +97,7 @@ const TEAM: TeamMember[] = [
     avatar: '/input/nhi-avatar.jpg',
     detail: '5+ years in FDI companies — contract drafting/review, corporate compliance, risk management across IT, corporate setup, marketing, IP.',
     tags: ['Legal', 'Compliance', 'Contracts', 'Risk'],
+    linkedin: 'http://www.linkedin.com/in/thaonhito',
   },
 ]
 
@@ -115,11 +117,11 @@ function AssetUrl(slug: string, kind: 'cover' | 'video') {
   return `/input/${slug}-${kind}.${ext}`
 }
 
-function ProofCard({ p }: { p: { slug: string; title: string; body: string; tag: string; metric: string } }) {
+function ProofCard({ p, className }: { p: { slug: string; title: string; body: string; tag: string; metric: string }; className?: string }) {
   return (
     <Link
       to={`/project/${p.slug}`}
-      className="group block"
+      className={cn("group block", className)}
     >
       <TextureCard className="transition hover:border-amber-400/40">
         <div className="aspect-video bg-white/5">
@@ -257,9 +259,9 @@ function App() {
         <section id="proof" className="border-t border-white/10 bg-[#0d141d]/60 py-20">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeading kicker="01 · Proof" title="Shipped, not slides." />
-            <div className="grid gap-5 md:grid-cols-2">
+            <div className="grid gap-5 md:grid-cols-3">
               {PROOF.map((p) => (
-                <ProofCard key={p.slug} p={p} />
+                <ProofCard key={p.slug} p={p} className={p.slug === 'voicegpt' ? 'md:col-span-2' : undefined} />
               ))}
             </div>
           </div>
@@ -286,7 +288,7 @@ function App() {
         {/* TEAM */}
         <section id="team" className="border-t border-white/10 bg-[#0d141d]/60 py-20">
           <div className="mx-auto max-w-6xl px-6">
-            <SectionHeading kicker="03 · Team" title="Meet our amazing team members" />
+            <SectionHeading kicker="03 · Team" title="The people behind the work" />
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {TEAM.map((t) => (
                 <div key={t.name} className="flex flex-col border border-white/10 bg-white/[0.03] p-6">
@@ -325,22 +327,19 @@ function App() {
                 </div>
               ))}
             </div>
-            <p className="mt-8 font-mono-tech text-sm text-slate-500">
-              // We are a small software development team, but our combined experience spans full-stack development, AI/ML, and the AEC domain.
-            </p>
           </div>
         </section>
 
         {/* CTA / CONTACT */}
-        <section id="contact" className="py-24">
-          <div className="mx-auto max-w-4xl px-6 text-center">
+        <section id="contact" className="border-t border-white/10 bg-[#0d141d]/60 py-24">
+          <div className="mx-auto max-w-4xl px-6 text-left">
             <h2 className="text-3xl font-bold text-white md:text-5xl">
               Ready to build.
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-slate-400">
+            <p className="mt-4 max-w-xl text-lg text-slate-400">
               Let&apos;s talk about your project.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="mailto:phamhoangson2611@gmail.com"
                 className="rounded bg-amber-400 px-8 py-3 font-semibold text-[#0a0f16] transition hover:bg-amber-300"

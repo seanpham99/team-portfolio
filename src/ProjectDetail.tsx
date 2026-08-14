@@ -158,7 +158,7 @@ export default function ProjectDetail() {
 
         <div className="mt-10 w-full overflow-hidden rounded border border-white/10 bg-white/5">
           <img
-            src={`/input/${project.slug === 'tba' ? 'image33.png' : project.slug + '-cover.jpg'}`}
+            src={`/input/${project.slug === 'tba' ? 'image33.png' : project.slug === 'voicegpt' ? 'voicegpt-cover.png' : project.slug + '-cover.jpg'}`}
             alt={project.title}
             className="w-full object-contain"
             onError={(e) => {
