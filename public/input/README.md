@@ -1,4 +1,4 @@
-# Buildform — team capability page for LinkWave JD
+# Team Portfolio
 
 Vite + React + TS + Tailwind static site. Deploy anywhere (Vercel/Netlify/GH Pages).
 
