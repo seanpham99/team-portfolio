@@ -64,28 +64,6 @@ const PROJECTS: Project[] = [
     ],
     tech: ['Node.js / Express', 'TypeScript', 'Claude API', 'Intent extraction', 'Confidence tiering', 'Rate limiting', 'RBAC', 'JWT', 'Prompt engineering'],
   },
-  {
-    slug: 'voicegpt',
-    title: 'VoiceGPT',
-    body: 'Voice-first ChatGPT interface built at Tesse Technology on OpenAI — Vietnamese + English speech with 98% accuracy, voice-to-text input, text-to-speech answers, and art generation from prompts. Reached 70,000+ registered users in its first month, covered by VnExpress.',
-    tag: 'Voice AI / LLM Product',
-    source: 'https://vnexpress.net/startup-viet-phat-trien-voicegpt-4570210.html',
-    metrics: [
-      { label: 'Users', value: '70,000+' },
-      { label: 'Time to scale', value: '1 month' },
-      { label: 'Speech accuracy', value: '98%' },
-      { label: 'Languages', value: 'VI + EN' },
-    ],
-    workflow: [
-      'User speaks a question — Google speech-to-text converts it',
-      'Question forwarded to ChatGPT backend via VoiceGPT proxy',
-      'AI response returned + synthesized to speech via text-to-speech',
-      'Art generation from text prompts built in',
-      'Invite-gated signup for capacity control',
-      'Press coverage: VnExpress, Feb 2023',
-    ],
-    tech: ['Voice AI', 'Speech-to-text', 'Text-to-speech', 'OpenAI / ChatGPT API', 'Vietnamese + English', 'Consumer product', 'Prompt-based art generation', 'Tesse Technology R&D'],
-  },
 ]
 
 export default function ProjectDetail() {
@@ -160,7 +138,7 @@ export default function ProjectDetail() {
 
         <div className="mt-10 w-full overflow-hidden rounded border border-white/10 bg-white/5">
           <img
-            src={`${import.meta.env.BASE_URL}input/${project.slug === 'tba' ? 'image33.png' : project.slug === 'voicegpt' ? 'voicegpt-cover.png' : project.slug + '-cover.jpg'}`}
+            src={`${import.meta.env.BASE_URL}input/${project.slug === 'tba' ? 'image33.png' : project.slug + '-cover.jpg'}`}
             alt={project.title}
             className="w-full object-contain"
             onError={(e) => {

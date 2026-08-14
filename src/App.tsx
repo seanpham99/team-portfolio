@@ -36,13 +36,6 @@ const PROOF = [
     tag: 'LLM / Production',
     metric: 'Confidence-tiered estimates',
   },
-  {
-    slug: 'voicegpt',
-    title: 'VoiceGPT',
-    body: 'Voice-first ChatGPT interface — 70,000+ registered users in the first month, Vietnamese + English speech with 98% accuracy, art generation from prompts.',
-    tag: 'Voice AI / LLM Product',
-    metric: '70k users in 30 days',
-  },
 ]
 
 const BASE = import.meta.env.BASE_URL
@@ -118,7 +111,6 @@ function SectionHeading({ kicker, title }: { kicker: string; title: string }) {
 
 function AssetUrl(slug: string, kind: 'cover' | 'video') {
   if (slug === 'tba' && kind === 'cover') return `${BASE}input/image9.png`
-  if (slug === 'voicegpt' && kind === 'cover') return `${BASE}input/voicegpt-cover.png`
   const ext = kind === 'video' ? 'mp4' : 'jpg'
   return `${BASE}input/${slug}-${kind}.${ext}`
 }
@@ -281,9 +273,9 @@ function App() {
         <section id="proof" className="border-t border-white/10 bg-[#0d141d]/60 py-20">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeading kicker="01 · Proof" title="Shipped, not slides." />
-            <div className="grid gap-5 md:grid-cols-3">
+            <div className="grid gap-5 md:grid-cols-2">
               {PROOF.map((p) => (
-                <ProofCard key={p.slug} p={p} className={p.slug === 'voicegpt' ? 'md:col-span-2' : undefined} />
+                <ProofCard key={p.slug} p={p} />
               ))}
             </div>
           </div>
