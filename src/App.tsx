@@ -45,6 +45,8 @@ const PROOF = [
   },
 ]
 
+const BASE = import.meta.env.BASE_URL
+
 type TeamMember = {
   name: string
   role: string
@@ -58,7 +60,7 @@ const TEAM: TeamMember[] = [
   {
     name: 'Son Pham',
     role: 'Data Engineer / Full-stack Developer',
-    avatar: '/input/son-avatar.jpg',
+    avatar: `${BASE}input/son-avatar.jpg`,
     detail: 'Data Engineer at Swiss asset management firm. Also experienced in full-stack development, and LLM integration.',
     tags: ['React/TS/Next', 'Node + Python', 'RAG & LLMs'],
     linkedin: 'https://www.linkedin.com/in/phamhoangson2611',
@@ -66,7 +68,7 @@ const TEAM: TeamMember[] = [
   {
     name: 'Nam Nguyen',
     role: 'Structural / AI-ML Engineer',
-    avatar: '/input/nam-avatar.jpg',
+    avatar: `${BASE}input/nam-avatar.jpg`,
     detail: 'Structural - AI/ML Engineer, civil engineering domain (AEC). Co-built AI material take-off with Son.',
     tags: ['Computer Vision', 'Machine Learning', 'Deep Learning', 'AEC'],
     linkedin: 'https://www.linkedin.com/in/nam-hoang-46a2ba219',
@@ -74,7 +76,7 @@ const TEAM: TeamMember[] = [
   {
     name: 'Truong Dang',
     role: 'Data / AI Engineer',
-    avatar: '/input/truong-avatar.jpg',
+    avatar: `${BASE}input/truong-avatar.jpg`,
     detail: 'Data Engineer for most popular Vietnamese Social Network — 4+ years ETL on Spark (billions of rows). Experienced in developing, training, and deploying end-to-end AI models.',
     tags: ['Spark', 'Machine Learning', 'Computer Vision'],
     linkedin: 'https://www.linkedin.com/in/xuantruongdang/',
@@ -82,7 +84,7 @@ const TEAM: TeamMember[] = [
   {
     name: 'Anh Dung Nguyen',
     role: 'AI Engineer',
-    avatar: '/input/dung-avatar.jpg',
+    avatar: `${BASE}input/dung-avatar.jpg`,
     detail: 'R&D lead at Tesse (VoiceGPT) and Universe Labs — shipped VoiceGPT (70k users), AI integration for business clients across VN, Singapore, Australia, Canada. Unity/3D + digital twin, LLM & vision AI.',
     tags: ['Voice AI', 'Vision AI', 'LLM Agents', 'Digital Twin'],
     linkedin: 'https://www.linkedin.com/in/nguyen-dung-anh/',
@@ -90,7 +92,7 @@ const TEAM: TeamMember[] = [
   {
     name: 'Dinh Dat Vi',
     role: 'Product Owner / BA',
-    avatar: '/input/vi-avatar.jpg',
+    avatar: `${BASE}input/vi-avatar.jpg`,
     detail: 'Ex-Product Owner at Zalo (VNG) — product delivery, AI chatbot product (FriendifyAI), BSc Information Systems @ UIT, MBA @ UEH.',
     tags: ['Product', 'BA'],
     linkedin: 'https://www.linkedin.com/in/dinhdatvi',
@@ -98,7 +100,7 @@ const TEAM: TeamMember[] = [
   {
     name: 'To Thao Nhi',
     role: 'In-House Legal',
-    avatar: '/input/nhi-avatar.jpg',
+    avatar: `${BASE}input/nhi-avatar.jpg`,
     detail: '5+ years in FDI companies — contract drafting/review, corporate compliance, risk management across IT, corporate setup, marketing, IP.',
     tags: ['Legal', 'Compliance', 'Contracts', 'Risk'],
     linkedin: 'http://www.linkedin.com/in/thaonhito',
@@ -115,10 +117,10 @@ function SectionHeading({ kicker, title }: { kicker: string; title: string }) {
 }
 
 function AssetUrl(slug: string, kind: 'cover' | 'video') {
-  if (slug === 'tba' && kind === 'cover') return '/input/image9.png'
-  if (slug === 'voicegpt' && kind === 'cover') return '/input/voicegpt-cover.png'
+  if (slug === 'tba' && kind === 'cover') return `${BASE}input/image9.png`
+  if (slug === 'voicegpt' && kind === 'cover') return `${BASE}input/voicegpt-cover.png`
   const ext = kind === 'video' ? 'mp4' : 'jpg'
-  return `/input/${slug}-${kind}.${ext}`
+  return `${BASE}input/${slug}-${kind}.${ext}`
 }
 
 function ProofCard({ p, className }: { p: { slug: string; title: string; body: string; tag: string; metric: string }; className?: string }) {
@@ -247,7 +249,7 @@ function App() {
               className="group relative overflow-hidden border border-white/10 bg-white/[0.03]"
             >
               <img
-                src="/input/image9.png"
+                src={`${import.meta.env.BASE_URL}input/image9.png`}
                 alt="AI Material Take-Off marked-up plan"
                 className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
               />
