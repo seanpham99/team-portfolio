@@ -6,6 +6,10 @@ import { Spotlight } from '@/components/ui/spotlight-new'
 
 const NAV = ['Proof', 'Capabilities', 'Team', 'Contact']
 
+function scrollToSection(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
 const CAPABILITIES = [
   { need: 'React, TypeScript, Next.js', have: 'Production React 19 / TS codebases, Next.js apps shipped' },
   { need: 'Node.js (NestJS/Express) or Python (FastAPI)', have: 'Node + Python services in production; REST APIs end-to-end' },
@@ -129,7 +133,7 @@ function ProofCard({ p, className }: { p: { slug: string; title: string; body: s
             src={AssetUrl(p.slug, 'cover')}
             alt={p.title}
             loading="lazy"
-            className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+            className="h-full w-full object-cover transition duration-300"
             onError={(e) => {
               e.currentTarget.style.display = 'none'
             }}
@@ -166,7 +170,15 @@ function App() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <nav className="hidden gap-8 text-sm text-slate-400 md:flex">
             {NAV.map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="transition hover:text-amber-400">
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection(item.toLowerCase())
+                }}
+                className="transition hover:text-amber-400"
+              >
                 {item}
               </a>
             ))}
@@ -208,12 +220,20 @@ function App() {
               <div className="mt-10 flex flex-wrap gap-4">
                 <a
                   href="#proof"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollToSection('proof')
+                  }}
                   className="rounded bg-amber-400 px-6 py-3 font-semibold text-[#0a0f16] transition hover:bg-amber-300"
                 >
                   See what we deliver
                 </a>
                 <a
                   href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollToSection('contact')
+                  }}
                   className="rounded border border-white/20 px-6 py-3 font-medium text-white transition hover:border-amber-400/50 hover:text-amber-400"
                 >
                   Talk to us
@@ -348,6 +368,10 @@ function App() {
               </a>
               <a
                 href="#top"
+                onClick={(e) => {
+                  e.preventDefault()
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }}
                 className="rounded border border-white/20 px-8 py-3 font-medium text-white transition hover:border-amber-400/50 hover:text-amber-400"
               >
                 Back to top
