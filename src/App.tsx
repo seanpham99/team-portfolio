@@ -42,25 +42,25 @@ const PROOF = [
 
 const TEAM = [
   {
-    name: 'Phạm Hoàng Sơn',
-    role: 'Lead Fullstack + AI',
+    name: 'Son Pham',
+    role: 'Fullstack + AI',
     avatar: '/input/son-avatar.jpg',
-    detail: 'The dedicated lead on your project — full-stack, LLM integration, RAG, document pipelines.',
-    tags: ['React/TS/Next', 'Node + Python', 'RAG & LLMs', 'Postgres'],
+    detail: 'Full-stack, LLM integration, RAG, document pipelines.',
+    tags: ['React/TS/Next', 'Node + Python', 'RAG & LLMs'],
   },
   {
-    name: 'Nam Hoang',
+    name: 'Nam Nguyen',
     role: 'Structural / AI-ML Engineer',
     avatar: '/input/nam-avatar.jpg',
-    detail: 'Structural - AI/ML Engineer, civil engineering domain (AEC). Co-built AI material take-off with Son. Simpson Strong-Tie.',
+    detail: 'Structural - AI/ML Engineer, civil engineering domain (AEC). Co-built AI material take-off with Son.',
     tags: ['Computer Vision', 'ML', 'AEC'],
   },
   {
-    name: 'Dang Xuan Truong',
+    name: 'Truong Dang',
     role: 'Data / AI Engineer',
     avatar: '/input/truong-avatar.jpg',
-    detail: 'Data Engineer at Zalo (VNG) — 4+ years ETL on Spark (billions of rows). Built OCR baseline for Vietnamese scanned docs.',
-    tags: ['Spark', 'OCR', 'Python', 'Zalo', 'UIT'],
+    detail: 'Data Engineer for well-known Vietnam Social Network — 4+ years ETL on Spark (billions of rows). Built OCR baseline for Vietnamese scanned docs.',
+    tags: ['Spark', 'OCR', 'Python'],
   },
   {
     name: 'Anh Dung Nguyen',
@@ -73,8 +73,8 @@ const TEAM = [
     name: 'Dinh Dat Vi',
     role: 'Product Owner / BA',
     avatar: '/input/vi-avatar.jpg',
-    detail: 'Product Owner at Zalo (VNG) — product delivery, AI chatbot product (FriendifyAI), BSc Information Systems @ UIT, MBA @ UEH.',
-    tags: ['Product', 'BA', 'Zalo', 'UIT'],
+    detail: 'Ex-Product Owner at Zalo (VNG) — product delivery, AI chatbot product (FriendifyAI), BSc Information Systems @ UIT, MBA @ UEH.',
+    tags: ['Product', 'BA'],
   },
 ]
 
@@ -88,7 +88,7 @@ function SectionHeading({ kicker, title }: { kicker: string; title: string }) {
 }
 
 function AssetUrl(slug: string, kind: 'cover' | 'video') {
-  if (slug === 'tba' && kind === 'cover') return '/input/image33.png'
+  if (slug === 'tba' && kind === 'cover') return '/input/image9.png'
   if (slug === 'voicegpt' && kind === 'cover') return '/input/voicegpt-cover.png'
   const ext = kind === 'video' ? 'mp4' : 'jpg'
   return `/input/${slug}-${kind}.${ext}`
@@ -273,7 +273,7 @@ function App() {
         {/* TEAM */}
         <section id="team" className="border-t border-white/10 bg-[#0d141d]/60 py-20">
           <div className="mx-auto max-w-6xl px-6">
-            <SectionHeading kicker="03 · Team" title="One dedicated lead. A whole team behind." />
+            <SectionHeading kicker="03 · Team" title="Meet our amazing team members" />
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
               {TEAM.map((t) => (
                 <div key={t.name} className="flex flex-col border border-white/10 bg-white/[0.03] p-6">
@@ -298,7 +298,7 @@ function App() {
               ))}
             </div>
             <p className="mt-8 font-mono-tech text-sm text-slate-500">
-              // ex-FPT · ex-Zalo · AEC engineers — 5+ years each
+              // We are a small software development team, but we have shipped production AI for construction and architecture. Our team has experience in full-stack development, LLM integration, RAG, document pipelines, and AEC domain knowledge.
             </p>
           </div>
         </section>
@@ -318,7 +318,7 @@ function App() {
                 href="mailto:phamhoangson2611@gmail.com"
                 className="rounded bg-amber-400 px-8 py-3 font-semibold text-[#0a0f16] transition hover:bg-amber-300"
               >
-                phamhoangson2611@gmail.com
+                Contact us
               </a>
               <a
                 href="#top"
